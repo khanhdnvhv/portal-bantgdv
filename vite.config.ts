@@ -4,9 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
-  // THÊM DÒNG NÀY: Thay 'portal-bantgdv' bằng tên chính xác repository của bạn
+  // THÊM DÒNG NÀY (Nhớ có dấu gạch chéo ở cả 2 đầu)
   base: "/portal-bantgdv/", 
-  
+
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
