@@ -82,7 +82,7 @@ export function GalleryDetailPage() {
             className="text-[#1a1a1a] mb-4"
             style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: "36px",
+              fontSize: "clamp(24px, 4vw, 36px)",
               fontWeight: 700,
               lineHeight: 1.3,
             }}
@@ -213,7 +213,7 @@ export function GalleryDetailPage() {
           </button>
 
           <div
-            className="max-w-6xl max-h-[90vh] px-16"
+            className="max-w-6xl max-h-[90vh] px-4 sm:px-8 md:px-16"
             onClick={(e) => e.stopPropagation()}
           >
             <img

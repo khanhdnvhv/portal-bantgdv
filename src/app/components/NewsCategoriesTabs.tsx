@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
 import svgArrow from "../../imports/svg-bp86new6yc";
@@ -9,12 +9,6 @@ import imgXacDinh from "figma:asset/e8269cf208b581136071b28a838b8838e6eec6c5.png
 import imgVanPhong from "figma:asset/17e2dee254ab09edc385a7a7a363d0ba79b1fcb1.png";
 import imgBoNhiem from "figma:asset/081a1acff60fac21d55db84118d38d21c625275b.png";
 import imgCuTri from "figma:asset/37db94d609ac68b9501abb3daff7016238ab1647.png";
-
-// Đại hội XIII / XIV section images
-import imgDaiHoiMonument from "figma:asset/771a91d7cb9f564b5f1e4a3fbbd5485526f5c504.png";
-import imgArticleTanTay from "figma:asset/a133d10643cf8e866591923722d87cae0275fc44.png";
-import imgArticleRachKien from "figma:asset/7110425e0c240f65c8de56f2a609d24bb7d7a3de.png";
-import imgArticleTanDong from "figma:asset/6f6eee82ef7b2d8e23fd8f7987ca802248b51e69.png";
 
 // ── Types ──────────────────────────────────────────────
 
@@ -58,192 +52,488 @@ const IMG_HCMC =
 const IMG_CONFERENCE =
   "https://images.unsplash.com/photo-1725335739089-21b454c097a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwY29uZmVyZW5jZSUyMHNlbWluYXIlMjBwcmVzZW50YXRpb258ZW58MXx8fHwxNzczNDczMzE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
 
-// ── Tab data ──────────────────────────���───────────────
+// ── Tab data ─────────────────────────────────────────
 
 const tabs: TabData[] = [
   {
-    label: "Tin hoạt động",
+    label: "Tin mới",
     featured: {
-      id: 1,
+      id: 100,
       image: imgXacDinh,
       title:
-        "Tăng cường công tác tuyên truyền, giáo dục lý luận chính trị trong tình hình mới",
+        "Tổng Bí thư chủ trì phiên họp đầu tiên của Tiểu ban Nhân sự Đại hội XIV của Đảng",
       source: "BTGĐV",
-      date: "14/03/2026",
+      date: "18/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 101,
+        image: IMG_MEETING,
+        title: "Thủ tướng chủ trì phiên họp Chính phủ thường kỳ tháng 3/2026",
+        source: "BTGĐV",
+        date: "18/03/2026",
+      },
+      {
+        id: 102,
+        image: IMG_CONFERENCE,
+        title: "Quốc hội khai mạc kỳ họp bất thường lần thứ 9, khóa XV",
+        source: "BTGĐV",
+        date: "17/03/2026",
+      },
+      {
+        id: 103,
+        image: IMG_EDUCATION,
+        title: "Chính phủ ban hành Nghị định mới về quản lý đô thị thông minh",
+        source: "BTGĐV",
+        date: "17/03/2026",
+      },
+      {
+        id: 104,
+        image: IMG_HANOI,
+        title: "Hà Nội đón nhận danh hiệu Thành phố sáng tạo của UNESCO năm 2026",
+        source: "BTGĐV",
+        date: "16/03/2026",
+      },
+    ],
+  },
+  {
+    label: "Chính trị",
+    featured: {
+      id: 1,
+      image: imgVanPhong,
+      title:
+        "Tổng Bí thư chủ trì Hội nghị toàn quốc về công tác xây dựng, chỉnh đốn Đảng năm 2026",
+      source: "BTGĐV",
+      date: "17/03/2026",
     },
     smallArticles: [
       {
         id: 1,
         image: IMG_MEETING,
         title:
-          "Hội nghị toàn quốc tổng kết công tác tuyên giáo năm 2025",
+          "Quốc hội thảo luận về dự thảo Luật sửa đổi, bổ sung một số điều của Luật Tổ chc Chính phủ",
         source: "BTGĐV",
-        date: "12/03/2026",
+        date: "16/03/2026",
       },
       {
         id: 2,
         image: IMG_CONFERENCE,
         title:
-          "Đẩy mạnh công tác tuyên truyền các nghị quyết của Đảng đến cơ sở",
+          "Thủ tướng chỉ đạo đẩy mạnh cải cách hành chính, nâng cao hiệu lực quản lý nhà nước",
         source: "BTGĐV",
-        date: "10/03/2026",
+        date: "15/03/2026",
       },
       {
         id: 3,
         image: IMG_EDUCATION,
         title:
-          "Nâng cao chất lượng giảng dạy lý luận chính trị tại các trường Đảng",
+          "Hội nghị Trung ương ban hành Nghị quyết về đổi mới phương thức lãnh đạo của Đảng",
         source: "BTGĐV",
-        date: "08/03/2026",
+        date: "14/03/2026",
       },
       {
         id: 4,
         image: IMG_HANOI,
         title:
-          "Tập huấn nghiệp vụ tuyên giáo cho cán bộ cơ sở",
+          "Chủ tịch nước tiếp đoàn đại biểu người có công với cách mạng tiêu biểu toàn quốc",
         source: "BTGĐV",
-        date: "06/03/2026",
+        date: "13/03/2026",
       },
     ],
   },
   {
-    label: "Xây dựng đảng",
+    label: "Thế giới",
     featured: {
       id: 2,
-      image: imgVanPhong,
+      image: imgBoNhiem,
       title:
-        "Đổi mới công tác dân vận trong tình hình mới, gắn kết mật thiết với nhân dân",
+        "Việt Nam tham dự Hội nghị Cấp cao ASEAN lần thứ 46, thúc đẩy hợp tác khu vực toàn diện",
       source: "BTGĐV",
-      date: "13/03/2026",
+      date: "16/03/2026",
     },
     smallArticles: [
       {
         id: 5,
-        image: IMG_MEETING,
+        image: IMG_HCMC,
         title:
-          "Hội nghị giao ban công tác dân vận quý I/2026",
+          "Liên Hợp Quốc thông qua nghị quyết về ứng phó biến đổi khí hậu toàn cầu",
         source: "BTGĐV",
-        date: "11/03/2026",
+        date: "15/03/2026",
       },
       {
         id: 6,
         image: IMG_CITY,
         title:
-          "Triển khai Quy chế dân chủ ở cơ sở tại các địa phương",
+          "Quan hệ Việt Nam – Nhật Bản nâng tầm đối tác chiến lược toàn diện",
         source: "BTGĐV",
-        date: "09/03/2026",
+        date: "14/03/2026",
       },
       {
         id: 7,
         image: IMG_ELECTION,
         title:
-          "Tăng cường vai trò của Mặt trận Tổ quốc trong công tác dân vận",
+          "Hội nghị G20 tập trung vào phục hồi kinh tế và phát triển bền vững",
         source: "BTGĐV",
-        date: "07/03/2026",
+        date: "13/03/2026",
       },
       {
         id: 8,
-        image: IMG_HCMC,
+        image: IMG_CONFERENCE,
         title:
-          "Nâng cao hiệu quả công tác tiếp dân, đối thoại trực tiếp với nhân dân",
+          "Diễn đàn kinh tế thế giới Davos 2026: Định hình tương lai hợp tác quốc tế",
         source: "BTGĐV",
-        date: "05/03/2026",
+        date: "12/03/2026",
       },
     ],
   },
   {
-    label: "Học tập và làm theo lời Bác",
+    label: "Kinh tế",
+    featured: {
+      id: 200,
+      image: imgCuTri,
+      title:
+        "GDP quý I/2026 tăng trưởng 7,2%, vượt kỳ vọng nhờ xuất khẩu và đầu tư công",
+      source: "BTGĐV",
+      date: "17/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 201,
+        image: IMG_CITY,
+        title:
+          "Thị trường chứng khoán Việt Nam hướng tới nâng hạng thị trường mới nổi",
+        source: "BTGĐV",
+        date: "16/03/2026",
+      },
+      {
+        id: 202,
+        image: IMG_HCMC,
+        title: "FDI vào Việt Nam đạt kỷ lục 5,8 tỷ USD trong quý đầu năm 2026",
+        source: "BTGĐV",
+        date: "15/03/2026",
+      },
+      {
+        id: 203,
+        image: IMG_CONFERENCE,
+        title:
+          "Ngân hàng Nhà nước giữ ổn định lãi suất, hỗ trợ doanh nghiệp phục hồi",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 204,
+        image: IMG_MEETING,
+        title: "Đường sắt tốc độ cao Bắc – Nam khởi công đoạn Hà Nội – Vinh",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+    ],
+  },
+  {
+    label: "QPAN",
+    featured: {
+      id: 300,
+      image: imgXacDinh,
+      title:
+        "Bộ Quốc phòng tổ chức diễn tập phòng thủ dân sự kết hợp cứu hộ cứu nạn quy mô lớn",
+      source: "BTGĐV",
+      date: "17/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 301,
+        image: IMG_MEETING,
+        title:
+          "Bộ Công an triển khai Đề án 06 giai đoạn 2, nâng cao hiệu quả quản lý dân cư",
+        source: "BTGĐV",
+        date: "16/03/2026",
+      },
+      {
+        id: 302,
+        image: IMG_ELECTION,
+        title:
+          "Hải quân Việt Nam tham gia diễn tập đa phương ASEAN tại Biển Đông",
+        source: "BTGĐV",
+        date: "15/03/2026",
+      },
+      {
+        id: 303,
+        image: IMG_CONFERENCE,
+        title:
+          "Tăng cường hợp tác quốc phòng Việt Nam – Hàn Quốc trong lĩnh vực công nghiệp",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 304,
+        image: IMG_HANOI,
+        title:
+          "Công an TP.HCM triệt phá đường dây lừa đảo công nghệ cao xuyên quốc gia",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+    ],
+  },
+  {
+    label: "Xã hội",
     featured: {
       id: 3,
       image: imgBoNhiem,
       title:
-        "Đổi mới phương pháp giáo dục lý luận chính trị, tư tưởng Hồ Chí Minh",
+        "Triển khai chương trình mục tiêu quốc gia giảm nghèo bền vững giai đoạn 2026–2030",
       source: "BTGĐV",
-      date: "12/03/2026",
+      date: "17/03/2026",
     },
     smallArticles: [
       {
         id: 9,
-        image: IMG_CONFERENCE,
+        image: IMG_EDUCATION,
         title:
-          "Hội thảo khoa học về tư tưởng Hồ Chí Minh trong thời kỳ mới",
+          "Bộ Giáo dục công bố phương án thi tốt nghiệp THPT năm 2026 với nhiều đổi mới",
         source: "BTGĐV",
-        date: "10/03/2026",
+        date: "15/03/2026",
       },
       {
         id: 10,
-        image: IMG_EDUCATION,
+        image: IMG_MEETING,
         title:
-          "Tổ chức các lớp bồi dưỡng lý luận chính trị cho cán bộ trẻ",
+          "Tăng cường bảo hiểm y tế toàn dân, nâng cao chất lượng khám chữa bệnh tuyến cơ sở",
         source: "BTGĐV",
-        date: "08/03/2026",
+        date: "14/03/2026",
       },
       {
         id: 11,
-        image: IMG_MEETING,
+        image: IMG_CITY,
         title:
-          "Xây dựng chương trình giáo dục chính trị trong trường học",
+          "Hà Nội triển khai dự án nhà ở xã hội quy mô lớn cho công nhân lao động",
         source: "BTGĐV",
-        date: "06/03/2026",
+        date: "13/03/2026",
       },
       {
         id: 12,
         image: IMG_HANOI,
         title:
-          "Đẩy mạnh học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh",
+          "Đề án chuyển đổi số trong lĩnh vực y tế, giáo dục đạt nhiều kết quả tích cực",
         source: "BTGĐV",
-        date: "04/03/2026",
+        date: "12/03/2026",
       },
     ],
   },
   {
-    label: "NGHỊ QUYẾT 57-NQ/TW",
+    label: "Pháp luật",
     featured: {
-      id: 4,
-      image: imgCuTri,
+      id: 400,
+      image: imgVanPhong,
       title:
-        "Nâng cao chất lượng công tác báo chí, xuất bản phục vụ sự nghiệp đổi mới",
+        "Quốc hội thông qua Luật Đt đai sửa đổi, tạo hành lang pháp lý mới cho phát triển",
       source: "BTGĐV",
-      date: "11/03/2026",
+      date: "16/03/2026",
     },
     smallArticles: [
       {
-        id: 13,
+        id: 401,
         image: IMG_CONFERENCE,
-        title:
-          "Hội nghị toàn quốc về công tác báo chí - xuất bản",
+        title: "Tòa án nhân dân tối cao hướng dẫn áp dụng Bộ luật Hình sự sửa đổi",
         source: "BTGĐV",
-        date: "09/03/2026",
+        date: "15/03/2026",
       },
       {
-        id: 14,
+        id: 402,
         image: IMG_MEETING,
         title:
-          "Tăng cường quản lý nhà nước về hoạt động báo chí",
+          "Bộ Tư pháp đẩy mạnh cải cách thủ tục hành chính trong lĩnh vực hộ tịch",
         source: "BTGĐV",
-        date: "07/03/2026",
+        date: "14/03/2026",
       },
       {
-        id: 15,
+        id: 403,
+        image: IMG_ELECTION,
+        title: "Xét xử đại án tham nhũng: Nghiêm minh nhưng đảm bảo nhân đạo",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+      {
+        id: 404,
         image: IMG_HANOI,
         title:
-          "Xây dựng đội ngũ cán bộ báo chí có bản lĩnh chính trị vững vàng",
+          "Luật Nhà ở sửa đổi chính thức có hiệu lực, tác động lớn đến thị trường BĐS",
         source: "BTGĐV",
-        date: "05/03/2026",
+        date: "12/03/2026",
+      },
+    ],
+  },
+  {
+    label: "Văn hóa",
+    featured: {
+      id: 500,
+      image: imgCuTri,
+      title:
+        "Festival Huế 2026 thu hút hơn 2 triệu lượt khách, khẳng định thương hiệu văn hóa quốc gia",
+      source: "BTGĐV",
+      date: "17/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 501,
+        image: IMG_HCMC,
+        title:
+          "Di sản văn hóa phi vật thể Việt Nam được UNESCO vinh danh lần thứ 16",
+        source: "BTGĐV",
+        date: "16/03/2026",
       },
       {
-        id: 16,
+        id: 502,
         image: IMG_CITY,
         title:
-          "Phát triển báo chí điện tử theo hướng chuyên nghiệp",
+          "Phát triển cng nghiệp văn hóa: Mục tiêu đóng góp 7% GDP vào năm 2030",
         source: "BTGĐV",
-        date: "03/03/2026",
+        date: "15/03/2026",
+      },
+      {
+        id: 503,
+        image: IMG_EDUCATION,
+        title:
+          "Liên hoan phim quốc tế Hà Nội lần thứ VII thu hút 500 tác phẩm tham dự",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 504,
+        image: IMG_CONFERENCE,
+        title:
+          "Bảo tồn và phát huy giá trị văn hóa các dân tộc thiểu số vùng Tây Bắc",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+    ],
+  },
+  {
+    label: "Giáo dục",
+    featured: {
+      id: 600,
+      image: imgXacDinh,
+      title:
+        "Bộ Giáo dục công bố Chương trình giáo dục phổ thông mới, áp dụng từ năm học 2026–2027",
+      source: "BTGĐV",
+      date: "17/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 601,
+        image: IMG_EDUCATION,
+        title: "Đại học Quốc gia Hà Nội lọt top 300 đại học tốt nhất châu Á",
+        source: "BTGĐV",
+        date: "16/03/2026",
+      },
+      {
+        id: 602,
+        image: IMG_CONFERENCE,
+        title: "Triển khai chương trình học bổng du học cho 1.000 sinh viên xuất sắc",
+        source: "BTGĐV",
+        date: "15/03/2026",
+      },
+      {
+        id: 603,
+        image: IMG_MEETING,
+        title: "Tăng cường giáo dục STEM trong trường phổ thông từ năm học mới",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 604,
+        image: IMG_HANOI,
+        title: "Chính sách hỗ trợ giáo viên vùng khó khăn được nâng mức trợ cấp",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+    ],
+  },
+  {
+    label: "KHCN",
+    featured: {
+      id: 700,
+      image: imgVanPhong,
+      title:
+        "Việt Nam ra mắt vệ tinh quan sát trái đất VNREDSat-2, nâng cao năng lực giám sát",
+      source: "BTGĐV",
+      date: "16/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 701,
+        image: IMG_CITY,
+        title: "Trung tâm đổi mới sáng tạo quốc gia NIC đón 200 startup công nghệ",
+        source: "BTGĐV",
+        date: "15/03/2026",
+      },
+      {
+        id: 702,
+        image: IMG_CONFERENCE,
+        title:
+          "Ứng dụng AI trong y tế: Việt Nam phát triển hệ thống chẩn đoán hình ảnh",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 703,
+        image: IMG_HCMC,
+        title: "Khu công nghệ cao TP.HCM thu hút 3 tỷ USD đầu tư bán dẫn",
+        source: "BTGĐV",
+        date: "13/03/2026",
+      },
+      {
+        id: 704,
+        image: IMG_MEETING,
+        title: "Chương trình chuyển đổi số quốc gia đạt 85% mục tiêu giai đoạn I",
+        source: "BTGĐV",
+        date: "12/03/2026",
+      },
+    ],
+  },
+  {
+    label: "Thể thao",
+    featured: {
+      id: 800,
+      image: imgBoNhiem,
+      title:
+        "Đội tuyển Việt Nam giành vé dự vòng loại cuối cùng World Cup 2030 khu vực châu Á",
+      source: "BTGĐV",
+      date: "17/03/2026",
+    },
+    smallArticles: [
+      {
+        id: 801,
+        image: IMG_HCMC,
+        title: "SEA Games 34: Việt Nam đặt mục tiêu top 2 toàn đoàn tại Philippines",
+        source: "BTGĐV",
+        date: "16/03/2026",
+      },
+      {
+        id: 802,
+        image: IMG_ELECTION,
+        title: "VĐV Nguyễn Thị Oanh phá kỷ lục châu Á ở nội dung 1500m nữ",
+        source: "BTGĐV",
+        date: "15/03/2026",
+      },
+      {
+        id: 803,
+        image: IMG_CONFERENCE,
+        title: "V-League 2026 áp dụng công nghệ VAR toàn diện từ vòng 1",
+        source: "BTGĐV",
+        date: "14/03/2026",
+      },
+      {
+        id: 804,
+        image: IMG_CITY,
+        title: "Hà Nội đăng cai tổ chức giải Marathon quốc tế lần thứ V",
+        source: "BTGĐV",
+        date: "13/03/2026",
       },
     ],
   },
 ];
 
-// ── Clock Icon ─────────────────────────────────────────
+// ── Clock Icon ────────────────────────────────────────
 
 function ClockIcon({ color = "#888" }: { color?: string }) {
   return (
@@ -300,297 +590,6 @@ function SourceDate({
   );
 }
 
-// ── Milestone Filmstrip Data ──────────────────────────
-
-const milestones = [
-  {
-    year: "1930",
-    image: "https://images.unsplash.com/photo-1764000858269-28d9f0f72894?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwY29tbXVuaXN0JTIwcGFydHklMjBjb25ncmVzcyUyMG1lZXRpbmclMjAxOTMwfGVufDF8fHx8MTc3MzYwNDkzNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Thành lập Đảng Cộng sản Việt Nam",
-    desc: "Đánh dấu sự ra đời của công tác tuyên truyền, v���n động cách mạng trong quần chúng nhân dân",
-  },
-  {
-    year: "1945",
-    image: "https://images.unsplash.com/photo-1773071883313-c825e64bbcdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwaW5kZXBlbmRlbmNlJTIwY2VsZWJyYXRpb24lMjBmbGFnfGVufDF8fHx8MTc3MzYwNDkzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Cách mạng Tháng Tám thành công",
-    desc: "Công tác tuyên giáo và dân vận đóng vai trò then chốt trong việc vận động toàn dân đứng lên giành chính quyền",
-  },
-  {
-    year: "1954",
-    image: "https://images.unsplash.com/photo-1727096665427-020d43e77ade?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwd2FyJTIwdmljdG9yeSUyMHJldW5pZmljYXRpb24lMjAxOTc1fGVufDF8fHx8MTc3MzYwNDkzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Chiến thắng Điện Biên Phủ",
-    desc: "Tuyên truyền tinh thần kháng chiến, vận động nhân dân hậu phương chi viện cho tiền tuyến",
-  },
-  {
-    year: "1960",
-    image: "https://images.unsplash.com/photo-1747625119730-5e46501418b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwZWR1Y2F0aW9uJTIweG91dGglMjBwYXRyaW90aWN8ZW58MXx8fHwxNzczNjA0OTM4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Đại hội lần thứ III của Đảng",
-    desc: "Xây dựng chủ nghĩa xã hội ở miền Bắc, đẩy mạnh công tác dân vận phục vụ hai nhiệm vụ chiến lược",
-  },
-  {
-    year: "1975",
-    image: "https://images.unsplash.com/photo-1598544919456-fcb105fa7a6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwSG8lMjBDaGklMjBNaW5oJTIwY2l0eSUyMHNreWxpbmUlMjBhZXJpYWx8ZW58MXx8fHwxNzczNjA0OTQzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Giải phóng miền Nam, thống nhất đất nước",
-    desc: "Thắng lợi vĩ đại của công tác tuyên truyền, vận động quần chúng trong sự nghiệp giải phóng dân tộc",
-  },
-  {
-    year: "1986",
-    image: "https://images.unsplash.com/photo-1768364636467-f7a161e43af1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwbW9kZXJuJTIwZGV2ZWxvcG1lbnQlMjBIYW5vaXxlbnwxfHx8fDE3NzM2MDQ5Mzh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Đại hội VI – Khởi đầu công cuộc Đổi mới",
-    desc: "Đổi mới tư duy tuyên giáo, mở rộng dân chủ, tăng cường vận động quần chúng tham gia xây dựng đất nước",
-  },
-  {
-    year: "1996",
-    image: "https://images.unsplash.com/photo-1742888827024-6d85caf1d09b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwbmF0iionYWwlMjBhc3NlbWJseSUyMHBhcmxpYW1lbnR8ZW58MXx8fHwxNzczNjA0OTM5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Đại hội VIII – Đẩy mạnh CNH-HĐH",
-    desc: "Nâng cao vai trò tuyên giáo trong công nghiệp hóa, hiện đại hóa, đổi mới công tác dân vận cơ sở",
-  },
-  {
-    year: "2007",
-    image: "https://images.unsplash.com/photo-1747625119757-1b5c92aec5e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwZ292ZXJubWVudCUyMGRpZ2l0YWwlMjB0cmFuc2Zvcm1hdGlvbnxlbnwxfHx8fDE3NzM2MDQ5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Hội nhập WTO – Bước ngoặt lớn",
-    desc: "Tuyên truyền hội nhập quốc tế, vận động nhân dân thích ứng với kinh tế thị trường định hướng XHCN",
-  },
-  {
-    year: "2016",
-    image: "https://images.unsplash.com/photo-1708352549266-d8e6d73e1e59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwZ292ZXJubWVudCUyMG1lZXRpbmclMjBvZmZpY2lhbHxlbnwxfHx8fDE3NzM0NzMzMTZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Đại hội XII – Xây dựng Đảng trong sạch",
-    desc: "Tăng cường công tác tuyên giáo gắn với xây dựng, chỉnh đốn Đảng và phòng chống tham nhũng",
-  },
-  {
-    year: "2021",
-    image: "https://images.unsplash.com/photo-1725335739089-21b454c097a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxWaWV0bmFtJTIwY29uZmVyZW5jZSUyMHNlbWluYXIlMjBwcmVzZW50YXRpb258ZW58MXx8fHwxNzczNDczMzE5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    title: "Đại hội XIII – Kỷ nguyên mới",
-    desc: "Đẩy mạnh chuyển đổi số trong tuyên giáo, đổi mới công tác dân vận trong bối cảnh cách mạng 4.0",
-  },
-];
-
-// ── Filmstrip Milestones Component ────────────────────
-
-const CARD_W = 220;
-const GAP = 4;
-const STRIP_ITEM = CARD_W + GAP;
-const TOTAL_W = milestones.length * STRIP_ITEM;
-
-function FilmstripMilestones() {
-  const [paused, setPaused] = useState(false);
-
-  /* ── sprocket holes (shared top & bottom) ── */
-  const sprocketRow = (prefix: string) => (
-    <div className="flex items-center w-full" style={{ height: 26, background: "#f0e4d0" }}>
-      <div className="flex items-center gap-[2px] w-full px-[6px]">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <div
-            key={`${prefix}-${i}`}
-            className="shrink-0 rounded-full"
-            style={{
-              width: 12,
-              height: 12,
-              background: "#e8d5b8",
-              border: "1.5px solid #d4a853",
-              boxShadow: "inset 0 1px 2px rgba(163,0,0,0.12)",
-              marginRight: i < 49 ? "calc((100% - 50*12px) / 49)" : 0,
-              flex: "0 0 12px",
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-
-  return (
-    <div
-      className="relative w-full overflow-hidden rounded-lg"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      style={{
-        background: "#f0e4d0",
-        boxShadow: "0 8px 40px rgba(163,0,0,0.12), inset 0 0 60px rgba(212,168,83,0.1)",
-      }}
-    >
-      {/* ── Top sprocket strip ── */}
-      {sprocketRow("top")}
-
-      {/* ── Film strip border top ── */}
-      <div style={{ height: 3, background: "linear-gradient(90deg, #d4a853, #a30000, #d4a853)" }} />
-
-      {/* ── Scrolling film frames ── */}
-      <div className="relative overflow-hidden" style={{ height: 380 }}>
-        {/* Edge fade overlays */}
-        <div
-          className="absolute left-0 top-0 bottom-0 z-10 pointer-events-none"
-          style={{ width: 80, background: "linear-gradient(to right, #f0e4d0 0%, transparent 100%)" }}
-        />
-        <div
-          className="absolute right-0 top-0 bottom-0 z-10 pointer-events-none"
-          style={{ width: 80, background: "linear-gradient(to left, #f0e4d0 0%, transparent 100%)" }}
-        />
-
-        {/* Film grain overlay */}
-        <div
-          className="absolute inset-0 z-20 pointer-events-none opacity-[0.04]"
-          style={{
-            backgroundImage: "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22/%3E%3C/svg%3E')",
-          }}
-        />
-
-        {/* CSS animation keyframes */}
-        <style>{`
-          @keyframes filmScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-${TOTAL_W}px); }
-          }
-          .film-track {
-            animation: filmScroll ${milestones.length * 4}s linear infinite;
-          }
-          .film-track:hover, .film-track.paused {
-            animation-play-state: paused;
-          }
-        `}</style>
-
-        {/* The sliding track: 2 copies for seamless loop */}
-        <div
-          className={`flex items-stretch ${paused ? "paused" : ""} film-track`}
-          style={{ width: TOTAL_W * 2, gap: GAP }}
-        >
-          {[...milestones, ...milestones].map((m, i) => (
-            <div
-              key={`frame-${i}`}
-              className="shrink-0 relative group cursor-pointer"
-              style={{
-                width: CARD_W,
-                height: 380,
-                background: "#fffcf4",
-                borderLeft: "3px solid #d4a853",
-                borderRight: "3px solid #d4a853",
-                overflow: "hidden",
-              }}
-            >
-              {/* ── Image with sepia tint ── */}
-              <div className="relative overflow-hidden" style={{ height: 190 }}>
-                <img
-                  src={m.image}
-                  alt={m.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-                  style={{ filter: "sepia(0.25) contrast(1.1) brightness(0.95)" }}
-                />
-                {/* Vignette on image */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ boxShadow: "inset 0 0 40px rgba(0,0,0,0.3)" }}
-                />
-                {/* Bottom gradient fade */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 pointer-events-none"
-                  style={{
-                    height: 60,
-                    background: "linear-gradient(to top, #fffcf4, transparent)",
-                  }}
-                />
-                {/* Hover glow */}
-                <div className="absolute inset-0 bg-[#a30000]/0 group-hover:bg-[#a30000]/10 transition-all duration-400 pointer-events-none" />
-              </div>
-
-              {/* ── Red divider ── */}
-              <div style={{ height: 2, background: "linear-gradient(90deg, transparent, #a30000, transparent)" }} />
-
-              {/* ── Year ── */}
-              <div className="text-center pt-[8px]">
-                <span
-                  style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 44,
-                    lineHeight: "44px",
-                    color: "#a30000",
-                    textShadow: "0 1px 2px rgba(163,0,0,0.15)",
-                  }}
-                >
-                  {m.year}
-                </span>
-              </div>
-
-              {/* ── Title ── */}
-              <div className="px-[10px] pt-[4px]">
-                <p
-                  className="text-center group-hover:text-[#a30000] transition-colors duration-300"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    fontSize: 13.5,
-                    lineHeight: "19px",
-                    color: "#1a1a1a",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {m.title}
-                </p>
-              </div>
-
-              {/* ── Description ── */}
-              <div className="px-[10px] pt-[4px]">
-                <p
-                  className="text-center"
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 400,
-                    fontSize: 12,
-                    lineHeight: "17px",
-                    color: "#666",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {m.desc}
-                </p>
-              </div>
-
-              {/* ── Film frame number (bottom-right, like real film) ── */}
-              <div
-                className="absolute bottom-[6px] right-[8px] opacity-30"
-                style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontSize: 10,
-                  color: "#6f3706",
-                }}
-              >
-                ▶ {String(i % milestones.length + 1).padStart(2, "0")}A
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Film strip border bottom ── */}
-      <div style={{ height: 3, background: "linear-gradient(90deg, #d4a853, #a30000, #d4a853)" }} />
-
-      {/* ── Bottom sprocket strip ── */}
-      {sprocketRow("bot")}
-
-      {/* ── Playback indicator ── */}
-      <div className="absolute bottom-[32px] left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-        {paused && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="flex items-center gap-1 px-3 py-1 rounded-full"
-            style={{ background: "rgba(26,18,9,0.85)", backdropFilter: "blur(8px)" }}
-          >
-            <span style={{ color: "#d4a853", fontSize: 11, fontFamily: "'Inter', sans-serif" }}>
-              ⏸ Đã tạm dừng
-            </span>
-          </motion.div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 // Create motion components
 const MotionLink = motion.create(Link);
 
@@ -598,11 +597,21 @@ const MotionLink = motion.create(Link);
 
 export function NewsCategoriesTabs() {
   const [activeTab, setActiveTab] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const currentTab = tabs[activeTab];
+
+  const scrollTabs = (direction: "left" | "right") => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 200;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
-    <div className="relative w-full overflow-hidden" style={{ minHeight: 720 }}>
+    <div className="relative w-full overflow-hidden rounded-xl px-3 lg:px-0" style={{ maxWidth: 1360, margin: "24px auto 0" }}>
       {/* ═══ Background Image ═══ */}
       <img
         src={IMG_BG_SECTION}
@@ -631,7 +640,7 @@ export function NewsCategoriesTabs() {
       />
 
       {/* ═══ Floating Content ═══ */}
-      <div className="relative z-10 py-10 px-6 max-w-[1320px] mx-auto">
+      <div className="relative z-10 py-6 sm:py-8 px-3 sm:px-6 max-w-[1320px] mx-auto">
         {/* ── Title: "Tin Đảng" centered with Protest Strike font ── */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -644,22 +653,45 @@ export function NewsCategoriesTabs() {
             className="text-white uppercase text-center"
             style={{
               fontFamily: "'Protest Strike', sans-serif",
-              fontSize: 44,
+              fontSize: "clamp(28px, 5vw, 44px)",
               lineHeight: 1.3,
               textShadow: "3px 2px 8px rgba(0,0,0,0.5)",
             }}
-          >BẢNG TIN</h2>
+          >TIN TỨC</h2>
           <div className="w-[160px] h-[2px] bg-gradient-to-r from-transparent via-[#d4a853] to-transparent mt-3" />
         </motion.div>
 
         {/* ── Tab Bar (on dark bg) ── */}
         <div className="relative flex items-center justify-center pb-[10px]">
-          <div className="flex items-start gap-[4px]">
+          {/* Left arrow */}
+          <button
+            onClick={() => scrollTabs("left")}
+            className="shrink-0 flex items-center justify-center cursor-pointer border-none outline-none mr-2 transition-all duration-300 hover:scale-110 hover:brightness-125"
+            style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg, #d4a853, #c0891f)", boxShadow: "0 2px 6px rgba(212,168,83,0.5)" }}
+            aria-label="Cuộn trái"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Scrollable tabs container */}
+          <div
+            ref={scrollRef}
+            className="flex items-start gap-[4px] overflow-x-auto"
+            style={{
+              maxWidth: 900,
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            <style>{`[data-tab-scroll]::-webkit-scrollbar { display: none; }`}</style>
+            <div data-tab-scroll="" className="contents" />
             {tabs.map((tab, i) => (
               <button
                 key={tab.label}
                 onClick={() => setActiveTab(i)}
-                className="relative cursor-pointer bg-transparent border-none outline-none"
+                className="relative cursor-pointer bg-transparent border-none outline-none shrink-0"
                 style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: 15,
@@ -689,6 +721,18 @@ export function NewsCategoriesTabs() {
               </button>
             ))}
           </div>
+
+          {/* Right arrow */}
+          <button
+            onClick={() => scrollTabs("right")}
+            className="shrink-0 flex items-center justify-center cursor-pointer border-none outline-none ml-2 transition-all duration-300 hover:scale-110 hover:brightness-125"
+            style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg, #d4a853, #c0891f)", boxShadow: "0 2px 6px rgba(212,168,83,0.5)" }}
+            aria-label="Cuộn phải"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
         </div>
 
         {/* ── Floating white content card ── */}
@@ -713,12 +757,64 @@ export function NewsCategoriesTabs() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="flex"
+              className="flex flex-col md:flex-row"
             >
-              {/* ── LEFT: 2×2 small article grid ── */}
+              {/* ── LEFT: Featured article ── */}
+              <MotionLink
+                to={`/article/${currentTab.featured.id}`}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="group/feat flex flex-col flex-1 cursor-pointer mb-4 md:mb-0 md:pr-[15px]"
+              >
+                {/* Large image with hover overlay */}
+                <div
+                  className="relative overflow-hidden shrink-0 w-full rounded-[10px]"
+                  style={{ height: "clamp(260px, 40vw, 460px)" }}
+                >
+                  <img
+                    src={currentTab.featured.image}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/feat:scale-105"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover/feat:bg-black/15 transition-all duration-500 pointer-events-none" />
+                </div>
+                {/* Title */}
+                <div className="pt-[10px] pr-[15px] pb-[6px]">
+                  <p
+                    className="group-hover/feat:text-[#c41e2a] transition-colors"
+                    style={{
+                      fontFamily: "'Protest Strike', sans-serif",
+                      fontSize: "clamp(18px, 3vw, 26px)",
+                      fontWeight: 400,
+                      lineHeight: "1.4",
+                      color: "#333",
+                      letterSpacing: "0.32px",
+                    }}
+                  >
+                    {currentTab.featured.title}
+                  </p>
+                </div>
+                {/* Source + Date */}
+                <div className="mt-auto">
+                  <SourceDate
+                    source={currentTab.featured.source}
+                    date={currentTab.featured.date}
+                    color="#777"
+                  />
+                </div>
+              </MotionLink>
+
+              {/* ── Vertical divider ── */}
               <div
-                className="shrink-0 flex flex-col"
-                style={{ width: "40.5%" }}
+                className="shrink-0 mx-0 hidden md:block"
+                style={{ width: 1, backgroundColor: "#e2e2e2" }}
+              />
+
+              {/* ── RIGHT: 2×2 small article grid ── */}
+              <div
+                className="shrink-0 flex flex-col w-full md:w-[40.5%] md:pl-[15px]"
               >
                 {/* Row 1 */}
                 <div className="flex pb-[12px] border-b border-[#e2e2e2]">
@@ -739,7 +835,7 @@ export function NewsCategoriesTabs() {
                       {/* Image with hover overlay */}
                       <div
                         className="relative overflow-hidden shrink-0 w-full rounded-[8px]"
-                        style={{ height: 175 }}
+                        style={{ height: "clamp(120px, 20vw, 175px)" }}
                       >
                         <img
                           src={article.image}
@@ -796,7 +892,7 @@ export function NewsCategoriesTabs() {
                       {/* Image with hover overlay */}
                       <div
                         className="relative overflow-hidden shrink-0 w-full rounded-[8px]"
-                        style={{ height: 175 }}
+                        style={{ height: "clamp(120px, 20vw, 175px)" }}
                       >
                         <img
                           src={article.image}
@@ -834,60 +930,6 @@ export function NewsCategoriesTabs() {
                   ))}
                 </div>
               </div>
-
-              {/* ── Vertical divider ── */}
-              <div
-                className="shrink-0 mx-0"
-                style={{ width: 1, backgroundColor: "#e2e2e2" }}
-              />
-
-              {/* ── RIGHT: Featured article ── */}
-              <MotionLink
-                to={`/article/${currentTab.featured.id}`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="group/feat flex flex-col flex-1 cursor-pointer"
-                style={{ paddingLeft: 15 }}
-              >
-                {/* Large image with hover overlay */}
-                <div
-                  className="relative overflow-hidden shrink-0 w-full rounded-[10px]"
-                  style={{ height: 460 }}
-                >
-                  <img
-                    src={currentTab.featured.image}
-                    alt=""
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/feat:scale-105"
-                  />
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/0 group-hover/feat:bg-black/15 transition-all duration-500 pointer-events-none" />
-                </div>
-                {/* Title */}
-                <div className="pt-[10px] pr-[15px] pb-[6px]">
-                  <p
-                    className="group-hover/feat:text-[#c41e2a] transition-colors"
-                    style={{
-                      fontFamily: "'Protest Strike', sans-serif",
-                      fontSize: 26,
-                      fontWeight: 400,
-                      lineHeight: "38px",
-                      color: "#333",
-                      letterSpacing: "0.32px",
-                    }}
-                  >
-                    {currentTab.featured.title}
-                  </p>
-                </div>
-                {/* Source + Date */}
-                <div className="mt-auto">
-                  <SourceDate
-                    source={currentTab.featured.source}
-                    date={currentTab.featured.date}
-                    color="#777"
-                  />
-                </div>
-              </MotionLink>
             </motion.div>
           </AnimatePresence>
         </motion.div>
@@ -895,73 +937,6 @@ export function NewsCategoriesTabs() {
 
       {/* ═══ Đại hội XIII / XIV Section ═══ */}
     </div>
-      <div className="relative z-10 w-full overflow-hidden bg-transparent">
-        <div className="relative flex items-start max-w-[1360px] mx-auto" style={{ minHeight: 420 }}>
-          {/* Left: Large decorative monument image */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="absolute left-[-80px] top-[18px] z-0 pointer-events-none"
-            style={{ width: 580 }}
-          >
-            <img
-              src={imgDaiHoiMonument}
-              alt="Đại hội XIII"
-              className="w-full h-auto object-contain"
-              style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,0.15))" }}
-            />
-          </motion.div>
-
-          {/* Right content area */}
-          <div className="relative z-10 flex-1 flex flex-col gap-[50px] pt-[50px] pb-[30px]" style={{ marginLeft: 420 }}>
-            {/* Headers: Đại hội XIII + Đại hội XIV side by side */}
-            <div className="flex items-center justify-start">
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col items-start overflow-hidden"
-                style={{ width: 700 }}
-              >
-                <div className="flex items-center w-full gap-0">
-                  <span
-                    className="shrink-0 text-left pr-3"
-                    style={{
-                      fontFamily: "'Protest Strike', sans-serif",
-                      fontSize: 30,
-                      color: "#a30000",
-                    }}
-                  >
-                    Nhìn lại những
-                  </span>
-                  <div className="flex-1 h-[1px] bg-[#d4a853]" />
-                </div>
-                <h3
-                  className="text-left uppercase mt-1"
-                  style={{
-                    fontFamily: "'Protest Strike', sans-serif",
-                    fontWeight: 400,
-                    fontSize: 50,
-                    lineHeight: "65px",
-                    color: "#a30000",
-                  }}
-                >
-                  Cột mốc đáng nhớ
-                </h3>
-                <div className="flex items-center justify-end w-full gap-0">
-                  <div className="flex-1 h-[1px] bg-[#d4a853]" />
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Article cards row */}
-            <FilmstripMilestones />
-          </div>
-        </div>
-      </div>
     </>
   );
 }

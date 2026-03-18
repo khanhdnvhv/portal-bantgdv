@@ -14,24 +14,24 @@ const keyPoints = [
 
 export function Resolution57Page() {
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb items={[{ label: "Trang chủ", to: "/" }, { label: "NGHỊ QUYẾT 57-NQ/TW" }]} />
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
         {/* Hero */}
         <div
-          className="rounded-2xl overflow-hidden p-12 text-center text-white relative"
+          className="rounded-2xl overflow-hidden p-6 sm:p-8 md:p-12 text-center text-white relative"
           style={{
             background: "linear-gradient(135deg, #C41E2A 0%, #1a1a2e 50%, #C0891F 100%)",
           }}
         >
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.1) 35px, rgba(255,255,255,0.1) 36px)" }} />
           <div className="relative z-10">
-            <Zap className="w-16 h-16 mx-auto mb-4 opacity-80" />
-            <h1 className="text-4xl mb-2" style={{ fontFamily: FONTS.display, fontWeight: 700 }}>
+            <Zap className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 opacity-80" />
+            <h1 className="mb-2" style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: "clamp(24px, 4vw, 36px)" }}>
               NGHỊ QUYẾT 57-NQ/TW
             </h1>
-            <p className="text-xl text-white/90 mb-4" style={{ fontFamily: FONTS.body }}>
+            <p className="text-white/90 mb-4" style={{ fontFamily: FONTS.body, fontSize: "clamp(16px, 2.5vw, 20px)" }}>
               Về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia
             </p>
             <p className="text-white/60 text-sm" style={{ fontFamily: FONTS.sans }}>

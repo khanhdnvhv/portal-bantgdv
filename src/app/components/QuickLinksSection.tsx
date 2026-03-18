@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { Link } from "react-router";
 
 // Container-48-307 assets
 import imgBackground from "figma:asset/498e1eb97b3b6e86b8cd5c08ef37d3743b4d1b80.png";
@@ -34,18 +35,22 @@ const quickLinks = [
   {
     icon: imgIc01,
     title: "Phát biểu của lãnh đạo Đảng, Nhà nước",
+    to: "/tin-tuc",
   },
   {
     icon: imgIc02,
     title: "Hệ thống theo dõi tình hình, thực hiện nghị quyết, chỉ thị, kết luận của Trung Ương",
+    to: "/van-ban",
   },
   {
     icon: imgIc03,
     title: "Sổ tay Kế hoạch 02-KH/BCĐTW: Sức mạnh liên thông, hiệu quả đồng bộ",
+    to: "/van-ban",
   },
   {
     icon: imgIc04,
     title: "Nghị quyết 57 - Động lực phát triển, Đổi mới sáng tạo",
+    to: "/nghi-quyet-57",
   },
 ];
 
@@ -123,16 +128,16 @@ function ClockIcon() {
 export function QuickLinksSection() {
   return (
     <div className="bg-white py-6">
-      <div className="max-w-[1320px] mx-auto">
+      <div className="max-w-[1320px] mx-auto px-4 lg:px-0">
         {/* Main layout: left links panel + right banners */}
-        <div className="flex gap-5">
+        <div className="flex flex-col lg:flex-row gap-5">
           {/* Left Panel - Quick Links with background */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-[340px] shrink-0 rounded-xl overflow-hidden relative"
+            className="w-full lg:w-[340px] shrink-0 rounded-xl overflow-hidden relative"
             style={{
               backgroundImage: `url('${imgBackground}')`,
               backgroundSize: "cover",
@@ -155,13 +160,9 @@ export function QuickLinksSection() {
               }}
             >
               {quickLinks.map((link, i) => (
-                <motion.a
+                <Link
                   key={i}
-                  href="#"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  to={link.to}
                   className="group flex items-center gap-3.5 py-3.5 px-2 border-b border-[#e0c9b0]/40 last:border-b-0 cursor-pointer rounded-lg hover:bg-white/50 transition-all duration-300"
                 >
                   <div className="w-[40px] h-[40px] shrink-0 rounded-lg overflow-hidden shadow-sm group-hover:shadow-md transition-shadow duration-300">
@@ -177,7 +178,7 @@ export function QuickLinksSection() {
                   >
                     {link.title}
                   </span>
-                </motion.a>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -187,13 +188,9 @@ export function QuickLinksSection() {
             {/* Top row: 2x2 banner images */}
             <div className="grid grid-cols-2 gap-3 flex-1">
               {sideBanners.map((banner, i) => (
-                <motion.a
+                <Link
                   key={i}
-                  href="#"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  to="#"
                   className="group relative block rounded-xl overflow-hidden cursor-pointer"
                   style={{
                     boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
@@ -205,7 +202,7 @@ export function QuickLinksSection() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-black/5" />
-                </motion.a>
+                </Link>
               ))}
             </div>
           </div>
@@ -219,14 +216,12 @@ export function QuickLinksSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex gap-0">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-0">
             {newsColumns.map((column, colIdx) => (
               <div
                 key={colIdx}
-                className="flex-1"
+                className={`flex-1 ${colIdx > 0 ? "md:border-l md:border-[#ededed] md:pl-5 md:ml-0" : ""}`}
                 style={{
-                  borderLeft: colIdx > 0 ? "1px solid #ededed" : "none",
-                  paddingLeft: colIdx > 0 ? 20 : 0,
                   paddingRight: colIdx < newsColumns.length - 1 ? 20 : 0,
                 }}
               >
@@ -238,14 +233,14 @@ export function QuickLinksSection() {
                   >
                     {column.title}
                   </span>
-                  <a href="#" className="shrink-0">
+                  <Link to="/tin-tuc" className="shrink-0">
                     <img src={imgArrow} alt="" className="w-[25px] h-[24px]" />
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Featured article */}
-                <a href="#" className="group flex gap-3 pb-4 border-b border-[#ebebeb] mb-4 cursor-pointer">
-                  <div className="w-[312px] shrink-0 overflow-hidden rounded">
+                <Link to="/tin-tuc" className="group flex flex-col sm:flex-row gap-3 pb-4 border-b border-[#ebebeb] mb-4 cursor-pointer">
+                  <div className="w-full sm:w-[312px] shrink-0 overflow-hidden rounded">
                     <img
                       src={column.featured.image}
                       alt={column.featured.title}
@@ -283,20 +278,20 @@ export function QuickLinksSection() {
                       </span>
                     </div>
                   </div>
-                </a>
+                </Link>
 
                 {/* Small articles */}
                 {column.articles.map((article, j) => (
-                  <a
+                  <Link
                     key={j}
-                    href="#"
+                    to="/tin-tuc"
                     className="group flex gap-3 pb-4 border-b border-[#ebebeb] mb-4 last:border-b-0 last:mb-0 cursor-pointer"
                   >
-                    <div className="w-[148px] shrink-0 overflow-hidden rounded">
+                    <div className="w-[120px] sm:w-[148px] shrink-0 overflow-hidden rounded">
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-[99px] object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-[80px] sm:h-[99px] object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                     <div className="flex-1 flex flex-col gap-2.5 pl-1">
@@ -324,7 +319,7 @@ export function QuickLinksSection() {
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 ))}
               </div>
             ))}
@@ -334,16 +329,12 @@ export function QuickLinksSection() {
         {/* Bottom row: 3 system banners - separated */}
       </div>
 
-      <div className="max-w-[1320px] mx-auto mt-6">
-        <div className="grid grid-cols-4 gap-3">
+      <div className="max-w-[1320px] mx-auto mt-6 px-4 lg:px-0">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {systemBanners.slice(0, 4).map((banner, i) => (
-            <motion.a
+            <Link
               key={i}
-              href="#"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              to="#"
               className="group relative block rounded-xl overflow-hidden cursor-pointer"
               style={{
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
@@ -355,18 +346,14 @@ export function QuickLinksSection() {
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-black/5" />
-            </motion.a>
+            </Link>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-3 mt-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
           {systemBanners.slice(4).map((banner, i) => (
-            <motion.a
+            <Link
               key={i + 4}
-              href="#"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (i + 4) * 0.1 }}
+              to="#"
               className="group relative block rounded-xl overflow-hidden cursor-pointer"
               style={{
                 boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
@@ -378,7 +365,7 @@ export function QuickLinksSection() {
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-black/5" />
-            </motion.a>
+            </Link>
           ))}
         </div>
       </div>

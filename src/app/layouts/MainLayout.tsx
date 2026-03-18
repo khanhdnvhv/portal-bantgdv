@@ -1,15 +1,24 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
+import { useEffect } from "react";
 import FigmaHeader from "../../imports/Container-32-255";
 import { Footer } from "../components/Footer";
+import { MobileHeader } from "../components/MobileHeader";
+import { FloatingActions } from "../components/FloatingActions";
 import lotusBg from "figma:asset/2ddad1b0821068d4ba93eb21c46081f77bc59471.png";
 
 export function MainLayout() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div
       style={{
         minHeight: "100vh",
         background: "#ffffff",
         position: "relative",
+        overflowX: "hidden",
       }}
     >
       {/* === Global lotus background - covers entire page === */}
@@ -34,9 +43,16 @@ export function MainLayout() {
         }}
       />
 
-      {/* Figma Header - pixel-perfect */}
-      <div className="relative" style={{ zIndex: 1 }}>
-        <FigmaHeader />
+      {/* Figma Header - pixel-perfect, desktop only */}
+      <div className="relative overflow-x-hidden hidden lg:block" style={{ zIndex: 1 }}>
+        <div className="min-w-[1360px]">
+          <FigmaHeader />
+        </div>
+      </div>
+
+      {/* Mobile Header */}
+      <div className="relative" style={{ zIndex: 50 }}>
+        <MobileHeader />
       </div>
 
       {/* Main Content */}
@@ -48,6 +64,9 @@ export function MainLayout() {
       <div className="relative" style={{ zIndex: 1 }}>
         <Footer />
       </div>
+
+      {/* Floating Utilities Widget */}
+      <FloatingActions />
     </div>
   );
 }

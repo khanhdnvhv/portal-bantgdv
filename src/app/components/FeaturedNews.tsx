@@ -142,7 +142,7 @@ const categoryColors: Record<string, string> = {
 export function FeaturedNews() {
   return (
     <section className="bg-white py-8">
-      <div className="max-w-[1320px] mx-auto">
+      <div className="max-w-[1320px] mx-auto px-4 lg:px-0">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}

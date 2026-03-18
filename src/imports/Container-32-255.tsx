@@ -1,15 +1,26 @@
 import svgPaths from "./svg-fcfupgu55t";
+import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { Link as RouterLink } from "react-router";
+import { LiveSearchButton } from "../app/components/LiveSearchButton";
 import imgHeader from "figma:asset/277a74e218e8afcde92d7dd3ea8b661ece1eb03d.png";
-import imgLinkCngThongTinDinTDngCngSnVitNam from "figma:asset/086d4f71d1becf5a933dff60069dcd8c8b1946d2.png";
+import imgLinkCngThongTinDinTDngCngSnVitNam from "figma:asset/a1b448eec962bfc9fdad215f53d6e6f7c17d8634.png";
 import imgCngThongTinDinTDngCngSnVitNam from "figma:asset/1a3f423932f8583bc5d89a018398de6bd7ce8f6c.png";
 import imgMic from "figma:asset/b5e9f19b107be0066e10bca5062508ed0eed673f.png";
 import imgBannerBauCu4C36BPng from "figma:asset/4892ae24ea058e0d96babad5d36927431c1bf6ca.png";
 
 function LinkCngThongTinDinTDngCngSnVitNam() {
   return (
-    <div className="h-[90px] relative shrink-0 w-[146px]" data-name="Link → Cổng thông tin điện tử Đảng Cộng sản Việt Nam">
+    <div
+      className="h-[90px] relative shrink-0 w-[90px]"
+      data-name="Link → Cổng thông tin điện tử Đảng Cộng sản Việt Nam"
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgLinkCngThongTinDinTDngCngSnVitNam} />
+        <img
+          alt=""
+          className="absolute left-0 max-w-none size-full top-0 object-cover"
+          src={imgLinkCngThongTinDinTDngCngSnVitNam}
+        />
       </div>
     </div>
   );
@@ -17,7 +28,10 @@ function LinkCngThongTinDinTDngCngSnVitNam() {
 
 function Container3() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start relative shrink-0"
+      data-name="Container"
+    >
       <LinkCngThongTinDinTDngCngSnVitNam />
     </div>
   );
@@ -25,9 +39,12 @@ function Container3() {
 
 function Container5() {
   return (
-    <div className="content-stretch flex flex-col items-center mb-[-0.01px] relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-center mb-[-0.01px] relative shrink-0 w-full"
+      data-name="Container"
+    >
       <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#c0891f] text-[28px] text-center uppercase whitespace-nowrap">
-        <p className="leading-[39.2px]">Cổng thông tin điện tử</p>
+        <p className="leading-[39.2px] text-[#db0713] font-bold">HỆ THỐNG THÔNG TIN</p>
       </div>
     </div>
   );
@@ -35,9 +52,12 @@ function Container5() {
 
 function Container6() {
   return (
-    <div className="content-stretch flex flex-col items-center mb-[-0.01px] relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-center mb-[-0.01px] relative shrink-0 w-full"
+      data-name="Container"
+    >
       <div className="flex flex-col font-['Inter:Extra_Bold',sans-serif] font-extrabold justify-center leading-[0] not-italic relative shrink-0 text-[#db0713] text-[40px] text-center uppercase whitespace-nowrap">
-        <p className="leading-[56px]">Ban Tuyên giáo và Dân vận</p>
+        <p className="leading-[56px]">Tuyên giáo và Dân vận</p>
       </div>
     </div>
   );
@@ -45,7 +65,10 @@ function Container6() {
 
 function Container4() {
   return (
-    <div className="content-stretch flex flex-col items-start pb-[0.01px] px-[48px] relative shrink-0 w-[649px]" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start pb-[0.01px] px-[48px] relative shrink-0 w-[649px]"
+      data-name="Container"
+    >
       <Container5 />
       <Container6 />
     </div>
@@ -54,17 +77,21 @@ function Container4() {
 
 function CngThongTinDinTDngCngSnVitNam() {
   return (
-    <div className="h-[100px] relative shrink-0 w-[177px]" data-name="Cổng thông tin điện tử Đảng Cộng sản Việt Nam">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgCngThongTinDinTDngCngSnVitNam} />
-      </div>
+    <div
+      className="h-[100px] relative shrink-0 w-[177px]"
+      data-name="Cổng thông tin điện tử Đảng Cộng sản Việt Nam"
+    >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
     </div>
   );
 }
 
 function Container7() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start relative shrink-0"
+      data-name="Container"
+    >
       <CngThongTinDinTDngCngSnVitNam />
     </div>
   );
@@ -72,7 +99,10 @@ function Container7() {
 
 function Container2() {
   return (
-    <div className="content-stretch flex items-center justify-center relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex items-center justify-center relative shrink-0 w-full"
+      data-name="Container"
+    >
       <Container3 />
       <Container4 />
       <Container7 />
@@ -82,9 +112,16 @@ function Container2() {
 
 function Header() {
   return (
-    <div className="content-stretch flex flex-col items-start py-[33px] relative shrink-0 w-full" data-name="Header">
+    <div
+      className="content-stretch flex flex-col items-start py-[33px] relative shrink-0 w-full"
+      data-name="Header"
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-[96.39%] left-[10.82%] max-w-none top-0 w-[78.37%]" src={imgHeader} />
+        <img
+          alt=""
+          className="absolute h-[96.39%] left-[10.82%] max-w-none top-0 w-[78.37%]"
+          src={imgHeader}
+        />
       </div>
       <Container2 />
     </div>
@@ -93,7 +130,10 @@ function Header() {
 
 function Container1() {
   return (
-    <div className="content-stretch flex flex-col items-start px-[12px] relative shrink-0 w-[1360px]" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start px-[12px] relative shrink-0 w-[1360px]"
+      data-name="Container"
+    >
       <Header />
     </div>
   );
@@ -101,7 +141,10 @@ function Container1() {
 
 function Background() {
   return (
-    <div className="bg-white content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="Background">
+    <div
+      className="bg-white content-stretch flex flex-col items-center relative shrink-0 w-full"
+      data-name="Background"
+    >
       <Container1 />
     </div>
   );
@@ -109,7 +152,10 @@ function Background() {
 
 function Container11() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px overflow-clip relative" data-name="Container">
+    <div
+      className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px overflow-clip relative"
+      data-name="Container"
+    >
       <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic relative shrink-0 text-[#999] text-[16px] w-full">
         <p className="leading-[normal]">Tìm kiếm...</p>
       </div>
@@ -119,7 +165,10 @@ function Container11() {
 
 function Input() {
   return (
-    <div className="bg-white h-[36px] relative shrink-0 w-full" data-name="Input">
+    <div
+      className="bg-white h-[36px] relative shrink-0 w-full"
+      data-name="Input"
+    >
       <div className="flex flex-row justify-center overflow-clip rounded-[inherit] size-full">
         <div className="content-stretch flex items-start justify-center pl-[12px] pr-[40px] py-[8px] relative size-full">
           <Container11 />
@@ -131,9 +180,16 @@ function Input() {
 
 function Mic() {
   return (
-    <div className="absolute max-w-[1920px] right-0 size-[34px] top-0" data-name="mic">
+    <div
+      className="absolute max-w-[1920px] right-0 size-[34px] top-0"
+      data-name="mic"
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgMic} />
+        <img
+          alt=""
+          className="absolute left-0 max-w-none size-full top-0"
+          src={imgMic}
+        />
       </div>
     </div>
   );
@@ -141,7 +197,10 @@ function Mic() {
 
 function Form() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Form">
+    <div
+      className="content-stretch flex flex-col items-start relative shrink-0 w-full"
+      data-name="Form"
+    >
       <Input />
       <Mic />
     </div>
@@ -150,7 +209,10 @@ function Form() {
 
 function Container10() {
   return (
-    <div className="absolute content-stretch flex flex-col items-start opacity-0 right-0 top-0 w-[200px]" data-name="Container">
+    <div
+      className="absolute content-stretch flex flex-col items-start opacity-0 right-0 top-0 w-[200px]"
+      data-name="Container"
+    >
       <Form />
     </div>
   );
@@ -159,9 +221,18 @@ function Container10() {
 function Icon() {
   return (
     <div className="relative size-[17px]" data-name="Icon">
-      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 17">
+      <svg
+        className="absolute block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 17 17"
+      >
         <g id="Icon">
-          <path d={svgPaths.p3b6e6a80} fill="var(--fill-0, white)" id="Vector" />
+          <path
+            d={svgPaths.p3b6e6a80}
+            fill="var(--fill-0, white)"
+            id="Vector"
+          />
         </g>
       </svg>
     </div>
@@ -170,7 +241,10 @@ function Icon() {
 
 function Container14() {
   return (
-    <div className="content-stretch flex items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start relative shrink-0"
+      data-name="Container"
+    >
       <div className="flex items-center justify-center relative shrink-0">
         <div className="-scale-y-100 flex-none">
           <Icon />
@@ -182,7 +256,10 @@ function Container14() {
 
 function Link() {
   return (
-    <div className="bg-[#ba0610] content-stretch flex flex-col h-[50px] items-start pb-[18px] pt-[15px] px-[12px] relative shrink-0" data-name="Link">
+    <div
+      className="bg-[#ba0610] content-stretch flex flex-col h-[50px] items-start pb-[18px] pt-[15px] px-[12px] relative shrink-0"
+      data-name="Link"
+    >
       <Container14 />
     </div>
   );
@@ -190,15 +267,23 @@ function Link() {
 
 function Item() {
   return (
-    <div className="content-stretch flex flex-col h-full items-start relative shrink-0" data-name="Item">
-      <Link />
+    <div
+      className="content-stretch flex flex-col h-full items-start relative shrink-0"
+      data-name="Item"
+    >
+      <RouterLink to="/" className="no-underline">
+        <Link />
+      </RouterLink>
     </div>
   );
 }
 
 function Item1() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Tin hoạt động</p>
       </div>
@@ -208,7 +293,10 @@ function Item1() {
 
 function Item2() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Xây dựng Đảng</p>
       </div>
@@ -218,7 +306,10 @@ function Item2() {
 
 function Item3() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Vấn đề quan tâm</p>
       </div>
@@ -228,7 +319,10 @@ function Item3() {
 
 function Item4() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Trang tin Hồ Chí Minh</p>
       </div>
@@ -238,7 +332,10 @@ function Item4() {
 
 function Item5() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Tư liệu văn kiện</p>
       </div>
@@ -247,49 +344,79 @@ function Item5() {
 }
 
 function ItemLink() {
-  return <div className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[1.2px] top-px" data-name="Item → Link" />;
+  return (
+    <div
+      className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[1.2px] top-px"
+      data-name="Item → Link"
+    />
+  );
 }
 
 function List1() {
   return (
-    <div className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-0 rounded-bl-[8px] rounded-br-[8px] top-[100px]" data-name="List">
+    <div
+      className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-0 rounded-bl-[8px] rounded-br-[8px] top-[100px]"
+      data-name="List"
+    >
       <div className="overflow-clip relative rounded-[inherit] size-full">
         <ItemLink />
       </div>
-      <div aria-hidden="true" className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]" />
+      <div
+        aria-hidden="true"
+        className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]"
+      />
     </div>
   );
 }
 
 function Item6() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <List1 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
-        <p className="leading-[50px]">Cơ quan đảng Trung ương</p>
+        <p className="leading-[50px]">
+          Cơ quan đảng Trung ưng
+        </p>
       </div>
     </div>
   );
 }
 
 function ItemLink1() {
-  return <div className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[1.19px] top-px" data-name="Item → Link" />;
+  return (
+    <div
+      className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[1.19px] top-px"
+      data-name="Item → Link"
+    />
+  );
 }
 
 function List2() {
   return (
-    <div className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-[-109.19px] rounded-bl-[8px] rounded-br-[8px] top-[100px]" data-name="List">
+    <div
+      className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-[-109.19px] rounded-bl-[8px] rounded-br-[8px] top-[100px]"
+      data-name="List"
+    >
       <div className="overflow-clip relative rounded-[inherit] size-full">
         <ItemLink1 />
       </div>
-      <div aria-hidden="true" className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]" />
+      <div
+        aria-hidden="true"
+        className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]"
+      />
     </div>
   );
 }
 
 function Item7() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <List2 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Bộ Ngành</p>
@@ -299,23 +426,37 @@ function Item7() {
 }
 
 function ItemLink2() {
-  return <div className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[0.92px] top-px" data-name="Item → Link" />;
+  return (
+    <div
+      className="absolute border-[#dc143c] border-b border-dashed h-[35px] left-px right-[0.92px] top-px"
+      data-name="Item → Link"
+    />
+  );
 }
 
 function List3() {
   return (
-    <div className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-[-68.92px] rounded-bl-[8px] rounded-br-[8px] top-[100px]" data-name="List">
+    <div
+      className="absolute bg-[#f4f4f5] h-[2px] left-0 min-w-[200px] opacity-0 right-[-68.92px] rounded-bl-[8px] rounded-br-[8px] top-[100px]"
+      data-name="List"
+    >
       <div className="overflow-clip relative rounded-[inherit] size-full">
         <ItemLink2 />
       </div>
-      <div aria-hidden="true" className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]" />
+      <div
+        aria-hidden="true"
+        className="absolute border border-[#ec7d00] border-solid inset-0 pointer-events-none rounded-bl-[8px] rounded-br-[8px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)]"
+      />
     </div>
   );
 }
 
 function Item8() {
   return (
-    <div className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0" data-name="Item">
+    <div
+      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0"
+      data-name="Item"
+    >
       <List3 />
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
         <p className="leading-[50px]">Tỉnh, thành ủy</p>
@@ -326,7 +467,10 @@ function Item8() {
 
 function List() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] h-[50px] items-start min-h-px min-w-px mr-[-2px] relative" data-name="List">
+    <div
+      className="content-stretch flex flex-[1_0_0] h-[50px] items-start min-h-px min-w-px mr-[-2px] relative"
+      data-name="List"
+    >
       <Item />
       <Item1 />
       <Item2 />
@@ -343,9 +487,18 @@ function List() {
 function Icon1() {
   return (
     <div className="relative size-[24px]" data-name="Icon">
-      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+      <svg
+        className="absolute block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 24 24"
+      >
         <g id="Icon">
-          <path d={svgPaths.pa723a80} fill="var(--fill-0, white)" id="Vector" />
+          <path
+            d={svgPaths.pa723a80}
+            fill="var(--fill-0, white)"
+            id="Vector"
+          />
         </g>
       </svg>
     </div>
@@ -354,7 +507,10 @@ function Icon1() {
 
 function Container16() {
   return (
-    <div className="content-stretch flex items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start relative shrink-0"
+      data-name="Container"
+    >
       <div className="flex items-center justify-center relative shrink-0">
         <div className="-scale-y-100 flex-none">
           <Icon1 />
@@ -366,7 +522,10 @@ function Container16() {
 
 function Container15() {
   return (
-    <div className="content-stretch flex flex-col items-center pb-px relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-center pb-px relative shrink-0"
+      data-name="Container"
+    >
       <Container16 />
     </div>
   );
@@ -374,7 +533,10 @@ function Container15() {
 
 function ButtonMenu() {
   return (
-    <div className="content-stretch flex items-center justify-center mr-[-2px] relative self-stretch shrink-0 w-[24px]" data-name="Button - Menu">
+    <div
+      className="content-stretch flex items-center justify-center mr-[-2px] relative self-stretch shrink-0 w-[24px]"
+      data-name="Button - Menu"
+    >
       <Container15 />
     </div>
   );
@@ -382,7 +544,10 @@ function ButtonMenu() {
 
 function Container13() {
   return (
-    <div className="content-stretch flex items-start pr-[2px] relative shrink-0 w-[1267.23px]" data-name="Container">
+    <div
+      className="content-stretch flex items-start pr-[2px] relative shrink-0 w-[1267.23px]"
+      data-name="Container"
+    >
       <List />
       <ButtonMenu />
     </div>
@@ -391,7 +556,10 @@ function Container13() {
 
 function Container12() {
   return (
-    <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px relative" data-name="Container">
+    <div
+      className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px relative"
+      data-name="Container"
+    >
       <Container13 />
     </div>
   );
@@ -399,10 +567,22 @@ function Container12() {
 
 function Icon2() {
   return (
-    <div className="h-[21px] relative w-[20px]" data-name="Icon">
-      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 21">
+    <div
+      className="h-[21px] relative w-[20px]"
+      data-name="Icon"
+    >
+      <svg
+        className="absolute block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 20 21"
+      >
         <g id="Icon">
-          <path d={svgPaths.p2e834800} fill="var(--fill-0, white)" id="Vector" />
+          <path
+            d={svgPaths.p2e834800}
+            fill="var(--fill-0, white)"
+            id="Vector"
+          />
         </g>
       </svg>
     </div>
@@ -411,7 +591,10 @@ function Icon2() {
 
 function Container18() {
   return (
-    <div className="content-stretch flex items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start relative shrink-0"
+      data-name="Container"
+    >
       <div className="flex items-center justify-center relative shrink-0">
         <div className="-scale-y-100 flex-none">
           <Icon2 />
@@ -423,7 +606,10 @@ function Container18() {
 
 function Button() {
   return (
-    <div className="bg-[rgba(229,141,144,0.5)] content-stretch flex items-start justify-center pb-[7px] pt-[8px] relative rounded-[20px] shrink-0 w-[36px]" data-name="Button">
+    <div
+      className="bg-[rgba(229,141,144,0.5)] content-stretch flex items-start justify-center pb-[7px] pt-[8px] relative rounded-[20px] shrink-0 w-[36px]"
+      data-name="Button"
+    >
       <Container18 />
     </div>
   );
@@ -431,10 +617,22 @@ function Button() {
 
 function Icon3() {
   return (
-    <div className="h-[21px] relative w-[20px]" data-name="Icon">
-      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 20 21">
+    <div
+      className="h-[21px] relative w-[20px]"
+      data-name="Icon"
+    >
+      <svg
+        className="absolute block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 20 21"
+      >
         <g id="Icon">
-          <path d={svgPaths.p30e33e50} fill="var(--fill-0, white)" id="Vector" />
+          <path
+            d={svgPaths.p30e33e50}
+            fill="var(--fill-0, white)"
+            id="Vector"
+          />
         </g>
       </svg>
     </div>
@@ -443,7 +641,10 @@ function Icon3() {
 
 function Container19() {
   return (
-    <div className="content-stretch flex items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start relative shrink-0"
+      data-name="Container"
+    >
       <div className="flex items-center justify-center relative shrink-0">
         <div className="-scale-y-100 flex-none">
           <Icon3 />
@@ -455,7 +656,10 @@ function Container19() {
 
 function ButtonMenu1() {
   return (
-    <div className="bg-[rgba(229,141,144,0.5)] content-stretch flex items-start justify-center pb-[7px] pt-[8px] relative rounded-[20px] shrink-0 w-[36px]" data-name="Button menu">
+    <div
+      className="bg-[rgba(229,141,144,0.5)] content-stretch flex items-start justify-center pb-[7px] pt-[8px] relative rounded-[20px] shrink-0 w-[36px]"
+      data-name="Button menu"
+    >
       <Container19 />
     </div>
   );
@@ -463,8 +667,11 @@ function ButtonMenu1() {
 
 function Container17() {
   return (
-    <div className="content-stretch flex gap-[6.77px] items-start justify-center relative shrink-0" data-name="Container">
-      <Button />
+    <div
+      className="content-stretch flex gap-[6.77px] items-start justify-center relative shrink-0"
+      data-name="Container"
+    >
+      <LiveSearchButton />
       <ButtonMenu1 />
     </div>
   );
@@ -472,7 +679,10 @@ function Container17() {
 
 function Margin() {
   return (
-    <div className="content-stretch flex flex-col items-start pl-[16px] relative shrink-0" data-name="Margin">
+    <div
+      className="content-stretch flex flex-col items-start pl-[16px] relative shrink-0"
+      data-name="Margin"
+    >
       <Container17 />
     </div>
   );
@@ -480,7 +690,10 @@ function Margin() {
 
 function Container9() {
   return (
-    <div className="content-stretch flex h-[50px] items-center relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex h-[50px] items-center relative shrink-0 w-full"
+      data-name="Container"
+    >
       <Container10 />
       <Container12 />
       <Margin />
@@ -490,7 +703,10 @@ function Container9() {
 
 function Container8() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1360px]" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start relative shrink-0 w-[1360px]"
+      data-name="Container"
+    >
       <Container9 />
     </div>
   );
@@ -498,7 +714,10 @@ function Container8() {
 
 function NavThcDn() {
   return (
-    <div className="bg-[#db0713] content-stretch flex flex-col h-[50px] items-center relative shrink-0 w-full" data-name="Nav - Thực đơn">
+    <div
+      className="bg-[#db0713] content-stretch flex flex-col h-[50px] items-center relative shrink-0 w-full overflow-visible z-[100]"
+      data-name="Nav - Thực đơn"
+    >
       <Container8 />
     </div>
   );
@@ -507,9 +726,18 @@ function NavThcDn() {
 function Icon4() {
   return (
     <div className="relative size-[14px]" data-name="Icon">
-      <svg className="absolute block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 14 14">
+      <svg
+        className="absolute block size-full"
+        fill="none"
+        preserveAspectRatio="none"
+        viewBox="0 0 14 14"
+      >
         <g id="Icon">
-          <path d={svgPaths.p37450f00} fill="var(--fill-0, #101828)" id="Vector" />
+          <path
+            d={svgPaths.p37450f00}
+            fill="var(--fill-0, #101828)"
+            id="Vector"
+          />
         </g>
       </svg>
     </div>
@@ -518,7 +746,10 @@ function Icon4() {
 
 function Container24() {
   return (
-    <div className="content-stretch flex items-start relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start relative shrink-0"
+      data-name="Container"
+    >
       <div className="flex items-center justify-center relative shrink-0">
         <div className="-scale-y-100 flex-none">
           <Icon4 />
@@ -530,7 +761,10 @@ function Container24() {
 
 function Container23() {
   return (
-    <div className="content-stretch flex items-start justify-center pb-px pt-[2px] relative shrink-0" data-name="Container">
+    <div
+      className="content-stretch flex items-start justify-center pb-px pt-[2px] relative shrink-0"
+      data-name="Container"
+    >
       <Container24 />
     </div>
   );
@@ -538,12 +772,17 @@ function Container23() {
 
 function Container22() {
   return (
-    <div className="relative shrink-0 w-full" data-name="Container">
+    <div
+      className="relative shrink-0 w-full"
+      data-name="Container"
+    >
       <div className="flex flex-row items-center size-full">
         <div className="content-stretch flex gap-[11.72px] items-center px-[14.22px] relative w-full">
           <Container23 />
           <div className="flex flex-col font-['Inter:Medium',sans-serif] font-medium justify-center leading-[0] not-italic relative shrink-0 text-[#101828] text-[14px] text-center whitespace-nowrap">
-            <p className="leading-[44px]">Thứ sáu, 13/03/2026</p>
+            <p className="leading-[44px]">
+              Thứ sáu, 13/03/2026
+            </p>
           </div>
         </div>
       </div>
@@ -553,7 +792,10 @@ function Container22() {
 
 function Background2() {
   return (
-    <div className="bg-[#f4f4f5] relative shrink-0 w-full" data-name="Background">
+    <div
+      className="bg-[#f4f4f5] relative shrink-0 w-full"
+      data-name="Background"
+    >
       <div className="content-stretch flex flex-col items-start px-[10px] relative w-full">
         <Container22 />
       </div>
@@ -563,7 +805,10 @@ function Background2() {
 
 function Container21() {
   return (
-    <div className="relative shrink-0 w-[215px]" data-name="Container">
+    <div
+      className="relative shrink-0 w-[215px]"
+      data-name="Container"
+    >
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
         <Background2 />
       </div>
@@ -573,18 +818,30 @@ function Container21() {
 
 function Link1() {
   return (
-    <div className="absolute content-stretch flex items-start left-[556.66px] pl-[15px] right-[-248.94px] top-[-0.5px]" data-name="Link">
+    <div
+      className="absolute content-stretch flex items-start left-[556.66px] pl-[15px] right-[-248.94px] top-[-0.5px]"
+      data-name="Link"
+    >
       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[#101828] text-[15px] whitespace-nowrap">
-        <p className="leading-[44px]">[Megastory] Bài 5: Hướng về ngày bầu cử 15/3 - Khí thế ngày hội lớn lan tỏa từ đất liền đến biển đảo</p>
+        <p className="leading-[44px]">
+          [Megastory] Bài 5: Hướng về ngày bầu cử 15/3 - Khí thế
+          ngày hội lớn lan tỏa từ đất liền đến biển đảo
+        </p>
       </div>
-      <div className="-translate-y-1/2 absolute bg-[#db0713] left-0 rounded-[3px] size-[6px] top-1/2" data-name="Background" />
+      <div
+        className="-translate-y-1/2 absolute bg-[#db0713] left-0 rounded-[3px] size-[6px] top-1/2"
+        data-name="Background"
+      />
     </div>
   );
 }
 
 function Container26() {
   return (
-    <div className="h-[44px] overflow-clip relative shrink-0 w-[1069px]" data-name="Container">
+    <div
+      className="h-[44px] overflow-clip relative shrink-0 w-[1069px]"
+      data-name="Container"
+    >
       <Link1 />
     </div>
   );
@@ -592,7 +849,10 @@ function Container26() {
 
 function Background3() {
   return (
-    <div className="bg-[#f4f4f5] h-[44px] relative shrink-0 w-full" data-name="Background">
+    <div
+      className="bg-[#f4f4f5] h-[44px] relative shrink-0 w-full"
+      data-name="Background"
+    >
       <div className="content-stretch flex flex-col items-start px-[10px] relative size-full">
         <Container26 />
       </div>
@@ -602,7 +862,10 @@ function Background3() {
 
 function Container25() {
   return (
-    <div className="relative shrink-0 w-[1105px]" data-name="Container">
+    <div
+      className="relative shrink-0 w-[1105px]"
+      data-name="Container"
+    >
       <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start pl-[16px] relative w-full">
         <Background3 />
       </div>
@@ -612,8 +875,14 @@ function Container25() {
 
 function Section() {
   return (
-    <div className="content-center flex flex-wrap gap-0 items-center pb-[17px] relative shrink-0 w-full" data-name="Section">
-      <div aria-hidden="true" className="absolute border-[#e5e5e5] border-b border-solid inset-0 pointer-events-none" />
+    <div
+      className="content-center flex flex-wrap gap-0 items-center pb-[17px] relative shrink-0 w-full"
+      data-name="Section"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute border-[#e5e5e5] border-b border-solid inset-0 pointer-events-none"
+      />
       <Container21 />
       <Container25 />
     </div>
@@ -622,7 +891,10 @@ function Section() {
 
 function Background1() {
   return (
-    <div className="bg-white content-stretch flex flex-col items-start px-[20px] py-[16px] relative shrink-0 w-[1360px]" data-name="Background">
+    <div
+      className="bg-white content-stretch flex flex-col items-start px-[20px] py-[16px] relative shrink-0 w-[1360px]"
+      data-name="Background"
+    >
       <Section />
     </div>
   );
@@ -630,7 +902,10 @@ function Background1() {
 
 function Container20() {
   return (
-    <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-center relative shrink-0 w-full"
+      data-name="Container"
+    >
       <Background1 />
     </div>
   );
@@ -638,9 +913,16 @@ function Container20() {
 
 function BannerBauCu4C36BPng() {
   return (
-    <div className="h-[100px] max-w-[1320px] relative shrink-0 w-[1320px]" data-name="banner_bau_cu_4c36b.png">
+    <div
+      className="h-[100px] max-w-[1320px] relative shrink-0 w-[1320px]"
+      data-name="banner_bau_cu_4c36b.png"
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute left-0 max-w-none size-full top-0" src={imgBannerBauCu4C36BPng} />
+        <img
+          alt=""
+          className="absolute left-0 max-w-none size-full top-0"
+          src={imgBannerBauCu4C36BPng}
+        />
       </div>
     </div>
   );
@@ -648,7 +930,10 @@ function BannerBauCu4C36BPng() {
 
 function Link2() {
   return (
-    <div className="content-stretch flex items-start justify-center relative shrink-0" data-name="Link">
+    <div
+      className="content-stretch flex items-start justify-center relative shrink-0"
+      data-name="Link"
+    >
       <BannerBauCu4C36BPng />
     </div>
   );
@@ -656,7 +941,10 @@ function Link2() {
 
 function Container28() {
   return (
-    <div className="content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-full" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-full"
+      data-name="Container"
+    >
       <Link2 />
     </div>
   );
@@ -664,7 +952,10 @@ function Container28() {
 
 function Background4() {
   return (
-    <div className="bg-white content-stretch flex flex-col items-start pb-[16px] px-[20px] relative shrink-0 w-[1360px]" data-name="Background">
+    <div
+      className="bg-white content-stretch flex flex-col items-start pb-[16px] px-[20px] relative shrink-0 w-[1360px]"
+      data-name="Background"
+    >
       <Container28 />
     </div>
   );
@@ -672,48 +963,175 @@ function Background4() {
 
 function Container27() {
   return (
-    <div className="content-stretch flex flex-col items-center relative shrink-0 w-full" data-name="Container">
-      <Background4 />
+    <div
+      className="content-stretch flex flex-col items-center relative shrink-0 w-full"
+      data-name="Container"
+    >
     </div>
   );
 }
 
 const navMenuItems = [
-  "Giới thiệu",
-  "Tin tức, hoạt động",
-  "Văn bản mới",
-  "Xây dựng đảng",
-  "NGHỊ QUYẾT 57-NQ/TW",
+  { label: "Tin tức", to: "/tin-tuc" },
+  { label: "Đa phương tiện", to: "/da-phuong-tien" },
+  { label: "Thư viện số", to: "/thu-vien-so" },
+  { label: "Thông tin đối ngoại", to: "/thong-tin-doi-ngoai" },
+  { label: "Báo cáo viên", to: "/bao-cao-vien" },
+  { label: "Lý luận chính trị", to: "/ly-luan-chinh-tri" },
+  { label: "Tuyên giáo dân vận", to: "/tuyen-giao-dan-van" },
 ];
+
+const dropdownCategories = [
+  { label: "Bảo vệ nền tảng tư tưởng của Đảng", to: "/bao-ve-nen-tang" },
+  { label: "Tin hoạt động ngành", to: "/tin-hoat-dong-nganh" },
+];
+
+function ButtonMenuDropdown() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState({ top: 0, left: 0 });
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [open]);
+
+  const handleClick = () => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setPos({ top: rect.bottom + 2, left: rect.right - 300 });
+    }
+    setOpen((v) => !v);
+  };
+
+  return (
+    <div
+      ref={ref}
+      className="relative self-stretch shrink-0 flex items-center justify-center mr-[-2px] w-[24px] cursor-pointer"
+      data-name="Button - Menu Dropdown"
+      onClick={handleClick}
+    >
+      <Container15 />
+
+      {open && createPortal(
+        <div
+          style={{
+            position: "fixed",
+            top: pos.top,
+            left: pos.left,
+            zIndex: 999999,
+            minWidth: 300,
+            background: "linear-gradient(180deg, #ffffff 0%, #fefefe 100%)",
+            borderRadius: "0 0 10px 10px",
+            boxShadow: "0 12px 36px -6px rgba(0,0,0,0.25), 0 6px 16px -4px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.06)",
+            animation: "dropdownSlide 0.2s ease-out",
+          }}
+          onMouseDown={(e) => e.stopPropagation()}
+        >
+          {/* Red accent bar */}
+          <div
+            style={{
+              height: "3px",
+              background: "linear-gradient(90deg, #c41e2a 0%, #db0713 40%, #c0891f 100%)",
+            }}
+          />
+          <div className="py-[10px]">
+            {dropdownCategories.map((cat, i) => (
+              <RouterLink
+                key={cat.label}
+                to={cat.to}
+                className="flex items-center gap-[12px] px-[22px] py-[14px] no-underline transition-colors hover:bg-[#fef2f2] group/dd"
+                onClick={() => setOpen(false)}
+              >
+                <span
+                  className="w-[7px] h-[7px] rounded-full flex-shrink-0"
+                  style={{ backgroundColor: "#c41e2a" }}
+                />
+                <span
+                  style={{
+                    fontFamily: "'Inter', sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#c41e2a",
+                    lineHeight: "24px",
+                  }}
+                >
+                  {cat.label}
+                </span>
+              </RouterLink>
+            ))}
+          </div>
+        </div>,
+        document.body
+      )}
+
+      <style>{`
+        @keyframes dropdownSlide {
+          from { opacity: 0; transform: translateY(-6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
 
 export { Container20, Container27 };
 
 export default function Container() {
   return (
-    <div className="content-stretch flex flex-col items-start relative size-full" data-name="Container">
+    <div
+      className="content-stretch flex flex-col items-start relative size-full"
+      data-name="Container"
+    >
       <Background />
       {/* Custom Nav Menu */}
-      <div className="bg-[#db0713] content-stretch flex flex-col h-[50px] items-center relative shrink-0 w-full" data-name="Nav - Thực đơn">
-        <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1360px]" data-name="Container">
-          <div className="content-stretch flex h-[50px] items-center relative shrink-0 w-full" data-name="Container">
+      <div
+        className="bg-[#db0713] content-stretch flex flex-col h-[50px] items-center relative shrink-0 w-full overflow-visible z-[100]"
+        data-name="Nav - Thực đơn"
+      >
+        <div
+          className="content-stretch flex flex-col items-start relative shrink-0 w-[1360px] overflow-visible"
+          data-name="Container"
+        >
+          <div
+            className="content-stretch flex h-[50px] items-center relative shrink-0 w-full overflow-visible"
+            data-name="Container"
+          >
             {/* Search (hidden) */}
             <Container10 />
             {/* Menu items */}
-            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px relative">
-              <div className="content-stretch flex items-start pr-[2px] relative shrink-0 w-full">
-                <div className="content-stretch flex flex-[1_0_0] h-[50px] items-start min-h-px min-w-px mr-[-2px] relative" data-name="List">
+            <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-h-px min-w-px relative overflow-visible">
+              <div className="content-stretch flex items-start pr-[2px] relative shrink-0 w-full overflow-visible">
+                <div
+                  className="content-stretch flex flex-[1_0_0] h-[50px] items-start min-h-px min-w-px mr-[-2px] relative"
+                  data-name="List"
+                >
                   {/* Search icon item */}
                   <Item />
                   {/* Menu text items */}
-                  {navMenuItems.map((label) => (
-                    <div key={label} className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0 cursor-pointer hover:bg-[#ba0610] transition-colors" data-name="Item">
+                  {navMenuItems.map((item) => (
+                    <RouterLink
+                      key={item.label}
+                      to={item.to}
+                      className="content-stretch flex flex-col h-[51.22px] items-start pt-[1.22px] px-[8px] relative shrink-0 cursor-pointer hover:bg-[#ba0610] transition-colors no-underline"
+                      data-name="Item"
+                    >
                       <div className="flex flex-col font-['Inter:Semi_Bold',sans-serif] font-semibold justify-center leading-[0] not-italic relative shrink-0 text-[14px] text-white uppercase whitespace-nowrap">
-                        <p className="leading-[50px]">{label}</p>
+                        <p className="leading-[50px]">
+                          {item.label}
+                        </p>
                       </div>
-                    </div>
+                    </RouterLink>
                   ))}
                 </div>
-                <ButtonMenu />
+                <ButtonMenuDropdown />
               </div>
             </div>
             {/* Right buttons */}

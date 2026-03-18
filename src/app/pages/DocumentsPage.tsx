@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { FileText, Download, Calendar, Search, Filter } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router";
 import { Breadcrumb } from "../components/shared";
 import { COLORS, FONTS, LAYOUT, SHADOWS } from "../constants/theme";
 
@@ -28,7 +29,7 @@ export function DocumentsPage() {
   });
 
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb items={[{ label: "Trang chủ", to: "/" }, { label: "Văn bản mới" }]} />
 
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
@@ -39,7 +40,7 @@ export function DocumentsPage() {
 
       {/* Search & filter bar */}
       <div className="flex flex-wrap gap-4 mb-8">
-        <div className="relative flex-1 min-w-[300px]">
+        <div className="relative flex-1 min-w-0 sm:min-w-[300px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
           <input
             type="text"
@@ -73,56 +74,60 @@ export function DocumentsPage() {
       {/* Documents list */}
       <div className="space-y-4">
         {filtered.map((doc, i) => (
-          <motion.a
+          <motion.div
             key={doc.id}
-            href="#"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="group flex items-start gap-5 p-5 bg-white rounded-xl transition-all cursor-pointer"
-            style={{ boxShadow: SHADOWS.card, border: "1px solid rgba(0,0,0,0.04)" }}
-            onMouseEnter={(e) => { e.currentTarget.style.boxShadow = SHADOWS.cardHover; }}
-            onMouseLeave={(e) => { e.currentTarget.style.boxShadow = SHADOWS.card; }}
           >
-            <div
-              className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0"
-              style={{ background: "linear-gradient(135deg, rgba(196,30,42,0.1) 0%, rgba(192,137,31,0.08) 100%)" }}
+            <Link
+              to={`/document/${doc.id}`}
+              className="group flex items-start gap-5 p-5 bg-white rounded-xl transition-all cursor-pointer"
+              style={{ boxShadow: SHADOWS.card, border: "1px solid rgba(0,0,0,0.04)" }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = SHADOWS.cardHover; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = SHADOWS.card; }}
             >
-              <FileText className="w-6 h-6 text-[#C41E2A]" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-bold" style={{ fontFamily: FONTS.sans, color: COLORS.goldDark }}>
-                  {doc.number}
-                </span>
-                <span className="px-2 py-0.5 rounded text-xs" style={{ background: "rgba(196,30,42,0.08)", color: COLORS.primary, fontFamily: FONTS.sans, fontWeight: 600 }}>
-                  {doc.category}
-                </span>
-                {doc.isNew && (
-                  <span className="px-2 py-0.5 rounded-full text-white text-[10px] font-bold" style={{ background: COLORS.primary }}>
-                    MỚI
-                  </span>
-                )}
-              </div>
-              <h3
-                className="mb-1 group-hover:text-[#C41E2A] transition-colors"
-                style={{ fontFamily: FONTS.display, fontSize: "16px", fontWeight: 700, lineHeight: 1.4 }}
+              <div
+                className="w-12 h-12 rounded-lg flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg, rgba(196,30,42,0.1) 0%, rgba(192,137,31,0.08) 100%)" }}
               >
-                {doc.title}
-              </h3>
-              <div className="flex items-center gap-4 text-xs text-gray-500" style={{ fontFamily: FONTS.sans }}>
-                <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {doc.date}</span>
-                <span>{doc.issuer}</span>
+                <FileText className="w-6 h-6 text-[#C41E2A]" />
               </div>
-            </div>
-            <button
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-white shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ background: COLORS.primary, fontFamily: FONTS.sans, fontSize: "12px", fontWeight: 600 }}
-            >
-              <Download className="w-4 h-4" />
-              Tải về
-            </button>
-          </motion.a>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold" style={{ fontFamily: FONTS.sans, color: COLORS.goldDark }}>
+                    {doc.number}
+                  </span>
+                  <span className="px-2 py-0.5 rounded text-xs" style={{ background: "rgba(196,30,42,0.08)", color: COLORS.primary, fontFamily: FONTS.sans, fontWeight: 600 }}>
+                    {doc.category}
+                  </span>
+                  {doc.isNew && (
+                    <span className="px-2 py-0.5 rounded-full text-white text-[10px] font-bold" style={{ background: COLORS.primary }}>
+                      MỚI
+                    </span>
+                  )}
+                </div>
+                <h3
+                  className="mb-1 group-hover:text-[#C41E2A] transition-colors"
+                  style={{ fontFamily: FONTS.display, fontSize: "16px", fontWeight: 700, lineHeight: 1.4 }}
+                >
+                  {doc.title}
+                </h3>
+                <div className="flex items-center gap-4 text-xs text-gray-500" style={{ fontFamily: FONTS.sans }}>
+                  <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {doc.date}</span>
+                  <span>{doc.issuer}</span>
+                </div>
+              </div>
+              <button
+                className="flex items-center gap-2 px-4 py-2 rounded-lg text-white shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ background: COLORS.primary, fontFamily: FONTS.sans, fontSize: "12px", fontWeight: 600 }}
+                onClick={(e) => e.preventDefault()}
+              >
+                <Download className="w-4 h-4" />
+                Tải về
+              </button>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </div>

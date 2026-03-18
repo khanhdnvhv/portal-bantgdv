@@ -260,41 +260,6 @@ export function HeroLeaders() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 py-16 px-6">
-        {/* Title */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col items-center mb-12"
-        >
-          <h2
-            className="text-white text-[48px] uppercase text-center leading-[1.3]"
-            style={{ fontFamily: "'Protest Strike', sans-serif", textShadow: "3px 2px 8px rgba(0,0,0,0.5)" }}
-          >
-            Lãnh đạo Ban Tuyên giáo và Dân vận
-          </h2>
-          <div className="w-[200px] h-[2px] bg-gradient-to-r from-transparent via-[#d4a853] to-transparent mt-4" />
-        </motion.div>
-
-        {/* Leader cards grid */}
-        <div className="flex items-stretch justify-center gap-10 max-w-[1360px] mx-auto" style={{ perspective: "1200px" }}>
-          {/* Head leader */}
-          <HeadLeaderCard leader={headLeader} />
-
-          {/* Deputies grid (2 rows x 4 cols) */}
-          <div className="flex-1 flex flex-col gap-6 justify-between">
-            {[0, 1].map((row) => (
-              <div key={row} className="flex gap-5 justify-center">
-                {deputies.slice(row * 4, row * 4 + 4).map((leader, i) => (
-                  <DeputyLeaderCard key={leader.name} leader={leader} row={row} index={i} />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

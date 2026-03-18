@@ -16,7 +16,7 @@ const orgUnits = [
 
 export function IntroductionPage() {
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb
         items={[
           { label: "Trang chủ", to: "/" },
@@ -27,15 +27,15 @@ export function IntroductionPage() {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
         {/* Hero banner */}
         <div
-          className="rounded-2xl overflow-hidden p-12 text-center text-white"
+          className="rounded-2xl overflow-hidden p-6 sm:p-8 md:p-12 text-center text-white"
           style={{
             background: "linear-gradient(135deg, #C41E2A 0%, #8b1a1a 50%, #C0891F 100%)",
           }}
         >
-          <Building2 className="w-16 h-16 mx-auto mb-4 opacity-80" />
+          <Building2 className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 opacity-80" />
           <h1
-            className="text-4xl mb-4"
-            style={{ fontFamily: FONTS.display, fontWeight: 700 }}
+            className="mb-4"
+            style={{ fontFamily: FONTS.display, fontWeight: 700, fontSize: "clamp(24px, 4vw, 36px)" }}
           >
             Giới thiệu
           </h1>
@@ -70,7 +70,7 @@ export function IntroductionPage() {
           <ContentCardTitle icon={<Users className="w-6 h-6" />}>
             Cơ cấu tổ chức
           </ContentCardTitle>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {orgUnits.map((unit, i) => (
               <motion.div
                 key={unit}

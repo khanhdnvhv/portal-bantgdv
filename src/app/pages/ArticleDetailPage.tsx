@@ -10,7 +10,7 @@ export function ArticleDetailPage() {
   const article = articlesData[id || "1"] || articlesData["1"];
 
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb
         items={[
           { label: "Trang chủ", to: "/" },
@@ -31,12 +31,12 @@ export function ArticleDetailPage() {
             <ArticleHeader article={article} />
 
             {/* Featured image */}
-            <div className="relative w-full" style={{ height: 500 }}>
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px]">
               <img src={article.thumbnail} alt={article.title} className="w-full h-full object-cover" />
             </div>
 
             {/* Content */}
-            <div className="p-8 pt-8">
+            <div className="p-4 sm:p-6 md:p-8 pt-6 sm:pt-8">
               <div
                 className="article-content"
                 style={{ fontFamily: FONTS.body, color: COLORS.textSecondary, lineHeight: 1.8 }}
@@ -44,8 +44,8 @@ export function ArticleDetailPage() {
               />
 
               {/* Share buttons */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <div className="flex items-center justify-between">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200">
+                <div className="flex items-center justify-between flex-wrap gap-3">
                   <span className="font-semibold text-gray-700">Chia sẻ bài viết:</span>
                   <button
                     className="flex items-center gap-2 px-6 py-2.5 rounded-lg text-white transition-all hover:scale-105"
@@ -80,7 +80,7 @@ export function ArticleDetailPage() {
 
 function ArticleHeader({ article }: { article: (typeof articlesData)[string] }) {
   return (
-    <div className="p-8 pb-6">
+    <div className="p-4 sm:p-6 md:p-8 pb-4 sm:pb-6">
       <div className="flex items-center gap-3 mb-4">
         <span
           className="px-4 py-1.5 text-sm font-semibold rounded-full"
@@ -91,13 +91,13 @@ function ArticleHeader({ article }: { article: (typeof articlesData)[string] }) 
       </div>
 
       <h1
-        className="text-4xl mb-6"
-        style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.primary, lineHeight: 1.3 }}
+        className="mb-4 sm:mb-6"
+        style={{ fontFamily: FONTS.display, fontWeight: 700, color: COLORS.primary, lineHeight: 1.3, fontSize: "clamp(22px, 4vw, 36px)" }}
       >
         {article.title}
       </h1>
 
-      <div className="flex flex-wrap items-center gap-6 text-gray-600 text-sm mb-6">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-gray-600 text-sm mb-4 sm:mb-6">
         <MetaItem icon={<Calendar className="w-4 h-4" />} text={article.date} />
         <MetaItem icon={<User className="w-4 h-4" />} text={article.author} />
         <MetaItem icon={<Clock className="w-4 h-4" />} text={article.readTime} />
@@ -175,11 +175,11 @@ function ArticleContentStyles() {
       }
       .article-content h2 {
         font-family: 'Playfair Display', serif;
-        font-size: 1.875rem;
+        font-size: clamp(1.25rem, 3vw, 1.875rem);
         font-weight: 700;
         color: #C41E2A;
-        margin-top: 2.5rem;
-        margin-bottom: 1.25rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
       }
       .article-content p {
         margin-bottom: 1.25rem;
@@ -194,11 +194,18 @@ function ArticleContentStyles() {
       }
       .article-content blockquote {
         border-left: 4px solid #C0891F;
-        padding-left: 1.5rem;
-        margin: 2rem 0;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
         font-style: italic;
         color: #6B7280;
-        font-size: 1.125rem;
+        font-size: 1rem;
+      }
+      @media (min-width: 640px) {
+        .article-content blockquote {
+          padding-left: 1.5rem;
+          margin: 2rem 0;
+          font-size: 1.125rem;
+        }
       }
     `}</style>
   );

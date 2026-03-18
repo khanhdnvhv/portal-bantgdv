@@ -24,7 +24,7 @@ const newsItems = [
     excerpt: "Tổng Bí thư đã chủ trì phiên họp Bộ Chính trị bàn về công tác cán bộ, một trong những nhiệm vụ then chốt.",
   },
   {
-    id: "1",
+    id: "3",
     title: "Hội nghị toàn quốc triển khai nhiệm vụ năm 2026",
     category: "Hoạt động",
     date: "14/03/2026",
@@ -33,7 +33,7 @@ const newsItems = [
     excerpt: "Hội nghị triển khai các nhiệm vụ trọng tâm trong công tác tuyên giáo và dân vận năm 2026.",
   },
   {
-    id: "1",
+    id: "4",
     title: "Đẩy mạnh công tác tuyên truyền Nghị quyết Đại hội XIV",
     category: "Tuyên truyền",
     date: "13/03/2026",
@@ -42,7 +42,7 @@ const newsItems = [
     excerpt: "Tập trung tuyên truyền sâu rộng các nội dung Nghị quyết Đại hội XIV của Đảng đến mọi tầng lớp nhân dân.",
   },
   {
-    id: "2",
+    id: "5",
     title: "Nâng cao chất lượng công tác dân vận trong tình hình mới",
     category: "Dân vận",
     date: "12/03/2026",
@@ -51,7 +51,7 @@ const newsItems = [
     excerpt: "Đổi mới nội dung, phương thức công tác dân vận, tăng cường mối quan hệ mật thiết giữa Đảng với nhân dân.",
   },
   {
-    id: "1",
+    id: "6",
     title: "Hội thảo khoa học về tư tưởng Hồ Chí Minh trong thời kỳ mới",
     category: "Giáo dục",
     date: "11/03/2026",
@@ -63,7 +63,7 @@ const newsItems = [
 
 export function NewsActivitiesPage() {
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb
         items={[
           { label: "Trang chủ", to: "/" },
@@ -80,7 +80,7 @@ export function NewsActivitiesPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {newsItems.map((item, i) => (
           <motion.div
-            key={`${item.id}-${i}`}
+            key={item.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08 }}

@@ -29,17 +29,17 @@ export function HoChiMinhBanner() {
             <div className="flex flex-col items-center justify-center text-center px-6 py-10">
               {/* Quote text */}
               <motion.p
-                className="font-['Playfair_Display',sans-serif] italic text-[28px] text-[#222] whitespace-nowrap"
+                className="font-['Playfair_Display',sans-serif] italic text-[18px] sm:text-[22px] md:text-[28px] text-[#222]"
                 style={{
                   fontWeight: 700,
-                  lineHeight: "44px",
+                  lineHeight: "1.5",
                 }}
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                {"\u201C"}Tuyên truyền là đem một việc gì nói cho dân hiểu, dân nhớ, dân theo, dân làm.{"\u201D"}
+                {"\""}Tuyên truyền là đem một việc gì nói cho dân hiểu, dân nhớ, dân theo, dân làm.{"\""}
               </motion.p>
 
               {/* Attribution */}

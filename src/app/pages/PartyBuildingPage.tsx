@@ -22,7 +22,7 @@ const articles = [
     excerpt: "Công tác kiểm tra, giám sát góp phần giữ vững kỷ cương, kỷ luật Đảng, xây dựng Đảng trong sạch.",
   },
   {
-    id: "1",
+    id: "3",
     title: "Nâng cao chất lượng đội ngũ cán bộ đáp ứng yêu cầu nhiệm vụ mới",
     date: "13/03/2026",
     category: "Công tác cán bộ",
@@ -30,7 +30,7 @@ const articles = [
     excerpt: "Chuẩn hóa tiêu chuẩn lãnh đạo cấp chiến lược, nâng cao năng lực đội ngũ cán bộ các cấp.",
   },
   {
-    id: "2",
+    id: "4",
     title: "Phát huy vai trò của nhân dân trong xây dựng Đảng và hệ thống chính trị",
     date: "12/03/2026",
     category: "Dân vận",
@@ -41,7 +41,7 @@ const articles = [
 
 export function PartyBuildingPage() {
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb items={[{ label: "Trang chủ", to: "/" }, { label: "Xây dựng Đảng" }]} />
 
       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
@@ -53,24 +53,24 @@ export function PartyBuildingPage() {
       <div className="space-y-6">
         {articles.map((item, i) => (
           <motion.div
-            key={`${item.id}-${i}`}
+            key={item.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
           >
             <Link
               to={`/article/${item.id}`}
-              className="group flex gap-6 bg-white rounded-xl overflow-hidden transition-all"
+              className="group flex flex-col sm:flex-row gap-0 sm:gap-6 bg-white rounded-xl overflow-hidden transition-all"
               style={{ boxShadow: SHADOWS.card }}
             >
-              <div className="w-72 h-48 shrink-0 overflow-hidden">
+              <div className="w-full sm:w-72 h-48 shrink-0 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="flex-1 p-6 flex flex-col justify-center">
+              <div className="flex-1 p-4 sm:p-6 flex flex-col justify-center">
                 <span
                   className="text-xs uppercase tracking-wider mb-2 inline-block"
                   style={{ color: COLORS.primary, fontFamily: FONTS.sans, fontWeight: 600 }}

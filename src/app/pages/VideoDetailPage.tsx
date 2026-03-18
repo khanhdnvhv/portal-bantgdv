@@ -88,7 +88,7 @@ export function VideoDetailPage() {
                 className="text-[#1a1a1a] mb-4"
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: "32px",
+                  fontSize: "clamp(22px, 4vw, 32px)",
                   fontWeight: 700,
                   lineHeight: 1.3,
                 }}

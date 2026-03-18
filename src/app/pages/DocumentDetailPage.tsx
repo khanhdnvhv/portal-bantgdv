@@ -82,7 +82,7 @@ export function DocumentDetailPage() {
                 className="text-[#1a1a1a] mb-4"
                 style={{
                   fontFamily: "'Playfair Display', serif",
-                  fontSize: "32px",
+                  fontSize: "clamp(22px, 4vw, 32px)",
                   fontWeight: 700,
                   lineHeight: 1.3,
                 }}
@@ -92,7 +92,7 @@ export function DocumentDetailPage() {
 
               {/* Metadata */}
               <div className="bg-[#fff8f0] rounded-lg p-4 mb-6">
-                <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                   <div>
                     <span className="text-gray-600 font-medium">Số ký hiệu:</span>
                     <p className="text-[#c41e2a] font-bold mt-1">

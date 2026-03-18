@@ -10,7 +10,7 @@ export function LeaderDetailPage() {
   const leader = leadersData[id || "1"] || leadersData["1"];
 
   return (
-    <div className="relative" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", padding: "40px 20px" }}>
+    <div className="relative px-3 md:px-5" style={{ maxWidth: LAYOUT.maxWidth, margin: "0 auto", paddingTop: 40, paddingBottom: 40 }}>
       <Breadcrumb
         items={[
           { label: "Trang chủ", to: "/" },
