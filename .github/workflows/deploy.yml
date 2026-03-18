@@ -28,7 +28,9 @@ jobs:
 
       - name: Build
         # Dùng npx để thực thi Vite với quyền hạn đúng trên môi trường Linux
-        run: npx vite build
+        run: |
+          chmod -R +x node_modules/.bin
+          npm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
