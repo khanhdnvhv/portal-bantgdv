@@ -15,15 +15,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
+
       - name: Install dependencies
-        run: npm install --force
+        # Dùng --force để bỏ qua lỗi xung đột Vite/Tailwind phiên bản
+        run: npm install --force 
+
       - name: Build
-        run: npm run build
+        # Dùng npx để thực thi Vite với quyền hạn đúng trên môi trường Linux
+        run: npx vite build
+
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
